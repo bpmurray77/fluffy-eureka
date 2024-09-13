@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const aBits = document.querySelectorAll('#row-a .bit');
     const bBits = document.querySelectorAll('#row-b .bit');
     const sumBits = document.querySelectorAll('#row-result .bit');
+    const decimalSumOutput = document.getElementById('decimal-sum'); // New element to display decimal sum
     
     let aValue = Array(8).fill(0); // Initialize Value A as an array of 8 bits (all 0s)
     let bValue = Array(8).fill(0); // Initialize Value B as an array of 8 bits (all 0s)
@@ -26,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 bit.classList.remove('active');
             }
         });
+
+        // Update the decimal sum in the HTML
+        decimalSumOutput.textContent = sumDecimal;
     }
 
     // Add click event listeners for Value A bits
@@ -50,4 +54,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
