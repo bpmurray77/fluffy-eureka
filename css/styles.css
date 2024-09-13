@@ -88,3 +88,9 @@ h2 {
     background-color: black;
     border-color: #444;
 }
+
+#sum-decimal-output {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
