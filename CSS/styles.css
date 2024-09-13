@@ -1,9 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: d3d3d3;
+    color: d3d3d3;
     border: dashed black;
 }
 
@@ -32,10 +29,13 @@ nav ul li a {
 
 main {
     padding: 2rem;
+    background-color: d3d3d3;
+    border: dashed yellow;
 }
 
 section {
     margin-bottom: 2rem;
+    border: dashed red;
 }
 
 footer {
