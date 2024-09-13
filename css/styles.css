@@ -61,6 +61,18 @@ h1 {
 
 .binary-row {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.binary-row-3 {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    margin-top: 111px;
 }
 
 h2 {
@@ -82,6 +94,14 @@ h2 {
     border: 2px solid #bbb;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.binary-row h2 {
+    margin-right: 20px;
+}
+
+.binary-row-3 h2 {
+    margin-right: 10px;
 }
 
 .bit.active {
