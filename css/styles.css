@@ -1,7 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    color: d3d3d3;
-    border: dashed black;
+    background-color: aqua;
 }
 
 header {
