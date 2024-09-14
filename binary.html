@@ -11,8 +11,12 @@
         <h1>8-bit Binary Calculator</h1>
 
         <!-- Row A -->
+        <!-- Parent container for all rows -->
+<div class="binary-calculator-container">
+    <!-- Row A -->
+    <div class="binary-row-container">
+        <h2>A</h2>
         <div class="binary-row" id="row-a">
-            <h2>A</h2>
             <div class="bit-container">
                 <div class="bit" id="a-bit-1"></div>
                 <div class="bit" id="a-bit-2"></div>
@@ -24,10 +28,12 @@
                 <div class="bit" id="a-bit-8"></div>
             </div>
         </div>
+    </div>
 
-        <!-- Row B -->
+    <!-- Row B -->
+    <div class="binary-row-container">
+        <h2>B</h2>
         <div class="binary-row" id="row-b">
-            <h2>B</h2>
             <div class="bit-container">
                 <div class="bit" id="b-bit-1"></div>
                 <div class="bit" id="b-bit-2"></div>
@@ -39,10 +45,12 @@
                 <div class="bit" id="b-bit-8"></div>
             </div>
         </div>
+    </div>
 
-        <!-- Result Row (Sum) -->
-        <div class="binary-row-3" id="row-result">
-            <h2>Sum</h2>
+    <!-- Result Row (Sum) -->
+    <div class="binary-row-container">
+        <h2>Output</h2>
+        <div class="binary-row" id="row-result">
             <div class="bit-container">
                 <div class="bit" id="sum-bit-1"></div>
                 <div class="bit" id="sum-bit-2"></div>
@@ -53,13 +61,20 @@
                 <div class="bit" id="sum-bit-7"></div>
                 <div class="bit" id="sum-bit-8"></div>
             </div>
+            <div id="sum-decimal-output">
+                <span id="decimal-sum">0</span>
+            </div>
+            <div id="color-display" style="width: 100px; height: 50px; border: 1px solid #000;"></div>
         </div>
-        <div id="sum-decimal-output">
-            Output: <span id="decimal-sum">0</span>
-        </div>
-        <div id="color-display" style="width: 100px; height: 100px; border: 1px solid #000;">
-            <!-- Color will appear here -->
-        </div>
+    </div>
+
+    <!-- Decimal Output -->
+
+
+    <!-- Color Display -->
+    
+</div>
+
     </div>
     
     
