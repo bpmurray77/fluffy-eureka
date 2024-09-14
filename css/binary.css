@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #a4c8e1;
+    background-color: #0b041a;
     color: #333;
 }
 
@@ -48,17 +48,15 @@ footer {
 }
 
 .calculator-container {
-    text-align: center;
-    padding: 20px;
-    background-color: #0b041a;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding-bottom: 500px;
+    width: 40%; /* Take 40% of the page width */
+    position: relative; /* Position relative for sticky effect */
 }
 
 h1 {
     margin-bottom: 50px;
     color: #00fe34;
+    display: flex;
+    justify-content: center;
 }
 
 .binary-row {
@@ -115,8 +113,8 @@ h2 {
     margin-top: 10px;
     font-weight: bold;
     color: #00fe34;
-    margin-left: 15px;
-    margin-right: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 #color-display {
@@ -125,15 +123,11 @@ h2 {
 }
 
 .binary-calculator-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
+    position: sticky;
+    top: 20px;
+    margin-top: 100px;
 }
 
-/* Each row should have the label aligned left and the bits aligned center */
 .binary-row-container {
     display: flex;
     align-items: center;
@@ -171,4 +165,41 @@ h2 {
 
 p {
     color: #d3d3d3;
+}
+
+li {
+    color: #d3d3d3;
+}
+
+.page-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between; /* Space between the two sections */
+}
+
+.documentation-container {
+    width: 55%; /* Take 55% of the page width */
+    padding-left: 20px;
+    margin-right: 3%;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calculator-container,
+    .documentation-container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .binary-calculator-container {
+        position: relative; /* Disable sticky on smaller screens */
+    }
 }
