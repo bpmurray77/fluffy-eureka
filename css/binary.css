@@ -47,9 +47,18 @@ footer {
     width: 100%;
 }
 
+.calculator-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #0b041a;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 500px;
+}
+
 h1 {
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 50px;
+    color: #00fe34;
 }
 
 .binary-row {
@@ -71,7 +80,22 @@ h1 {
 h2 {
     margin-bottom: 10px;
     font-size: 1.2em;
-    color: #6b8e23;
+    color: #00fe34;
+}
+
+.bit-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bit {
+    width: 50px;
+    height: 50px;
+    background-color: #686868;
+    border: 2px solid #000000;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .binary-row h2 {
@@ -84,13 +108,13 @@ h2 {
 
 .bit.active {
     background-color: #00fe34;
-    border-color: #444;
+    border-color: #000000;
 }
 
 #sum-decimal-output {
     margin-top: 10px;
     font-weight: bold;
-    color: #333;
+    color: #00fe34;
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -124,7 +148,27 @@ h2 {
     text-align: right; /* Align text to the right */
 }
 
+/* Each row should have the label aligned left and the bits aligned center */
+.binary-row-container-3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 120px;
+    margin-top: 125px;
+}
+
+/* Ensure all labels have the same fixed width to prevent misalignment */
+.binary-row-container-3 h2 {
+    margin-right: 20px; /* Space between the label and the bit row */
+    width: 120px; /* Fixed width for all labels */
+    text-align: right; /* Align text to the right */
+}
+
 .shout {
     margin-left: 30px;
     margin-top: 33px;
+}
+
+p {
+    color: #d3d3d3;
 }
