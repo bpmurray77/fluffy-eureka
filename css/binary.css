@@ -203,3 +203,7 @@ li {
         position: relative; /* Disable sticky on smaller screens */
     }
 }
+
+#decimal-sum {
+    margin-right: 20px;
+}
