@@ -15,12 +15,11 @@ body, html {
 
 .main-content {
     display: none; /* Hidden until the bootup sequence finishes */
-    text-align: center;
+    justify-content: space-between; /* Spreads content across the available space */
+    align-items: center; /* Vertically centers the content */
     padding: 20px;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    text-align: center;
+    height: 100vh; /* Full viewport height */
 }
 
 .bootup-screen {
@@ -70,7 +69,7 @@ body, html {
     width: 200px;
     height: 10px;
     background-color: #333;
-    border-radius: 5px;
+    border-radius: 0px;
     overflow: hidden;
 }
 
@@ -148,5 +147,19 @@ a:visited {
 }
 
 a:hover {
-    color: #a4c8e1;
+    color: #5d3a91;
+}
+
+.heading {
+    flex: 1; /* Takes up remaining space on the left */
+    text-align: right; /* Align the text to the right so it's closer to the image */
+}
+
+.logo-container2 {
+    flex: 0; /* Only take as much space as the image needs */
+}
+
+.nav-wrapper {
+    flex: 1; /* Takes up remaining space on the right */
+    text-align: left; /* Align the text to the left so it's closer to the image */
 }
