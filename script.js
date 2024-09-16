@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.onload = function() {
     const bootupScreen = document.getElementById('bootupScreen');
     const mainContent = document.getElementById('mainContent');
 
@@ -18,4 +18,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 50);
         }, 500); // Wait for the fade out animation to complete
     }, 3000); // 3 seconds delay, which matches the progress bar animation time
-});
+};
