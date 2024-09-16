@@ -55,7 +55,7 @@ footer {
 
 h1 {
     margin-bottom: 50px;
-    color: #00fe34;
+    color: #4CAF50;
     display: flex;
     justify-content: center;
 }
@@ -79,7 +79,7 @@ h1 {
 h2 {
     margin-bottom: 10px;
     font-size: 1.2em;
-    color: #00fe34;
+    color: #4CAF50;
 }
 
 .bit-container {
@@ -106,14 +106,14 @@ h2 {
 }
 
 .bit.active {
-    background-color: #00fe34;
+    background-color: #4CAF50;
     border-color: #000000;
 }
 
 #sum-decimal-output {
     margin-top: 10px;
     font-weight: bold;
-    color: #00fe34;
+    color: #4CAF50;
     display: flex;
     justify-content: center;
 }
