@@ -40,7 +40,7 @@ body, html {
 }
 
 .logo-container img {
-    width: 150px;
+    width: 200px;
     height: auto;
 }
 
@@ -120,10 +120,6 @@ body, html {
     100% { height: 100%; }
 }
 
-.heading {
-    padding-right: 50px;
-}
-
 h1 {
     color: #4CAF50;
 }
@@ -139,4 +135,8 @@ li {
 
 a:visited {
     color: #4CAF50;
+}
+
+a:hover {
+    color: #a4c8e1;
 }
