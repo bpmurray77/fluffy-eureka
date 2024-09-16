@@ -163,3 +163,9 @@ a:hover {
     flex: 1; /* Takes up remaining space on the right */
     text-align: left; /* Align the text to the left so it's closer to the image */
 }
+
+p {
+    color: #5d3a91;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
