@@ -8,7 +8,7 @@
 body, html {
     height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #0b041a;
+    background-color: #a4c8e1;
     color: white;
     overflow: hidden;
 }
@@ -33,7 +33,7 @@ body, html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #0b041a;
+    background-color: #a4c8e1;
     z-index: 9999;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
@@ -42,6 +42,13 @@ body, html {
 .logo-container img {
     width: 200px;
     height: auto;
+}
+
+.logo-container2 img {
+    width: 200px;
+    height: auto;
+    justify-content: center;
+    display: flex;
 }
 
 .initializing {
@@ -122,6 +129,7 @@ body, html {
 
 h1 {
     color: #4CAF50;
+    font-size: 50pt;
 }
 
 ul {
@@ -131,6 +139,8 @@ ul {
 li {
     padding-top: 10px;
     padding-bottom: 10px;
+    font-size: large;
+    font-weight: bold;
 }
 
 a:visited {
