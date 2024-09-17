@@ -127,7 +127,7 @@ body, html {
 }
 
 h1 {
-    color: #4CAF50;
+    color: #6b8f23;
     font-size: 50pt;
 }
 
@@ -196,13 +196,13 @@ p {
     text-decoration: none;
     padding: 10px;
     display: block;
-    background-color: #444;
+    background-color: #0b041a;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .nav-item a:hover {
-    background-color: #555;
+    background-color: #0b041a;
 }
 
 /* Radial sub-menu positioning */
