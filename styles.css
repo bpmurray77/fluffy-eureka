@@ -8,7 +8,7 @@
 body, html {
     height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #a4c8e1;
+    background-color: #0b041a;
     color: white;
     overflow: hidden;
 }
@@ -32,7 +32,7 @@ body, html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #a4c8e1;
+    background-color: #0b041a;
     z-index: 9999;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
@@ -143,11 +143,11 @@ li {
 }
 
 a:visited {
-    color: #4CAF50;
+    color: #d3d3d3;
 }
 
 a:hover {
-    color: #5d3a91;
+    color: #4CAF50;
 }
 
 .heading {
@@ -165,7 +165,113 @@ a:hover {
 }
 
 p {
-    color: #5d3a91;
+    color: #d3d3d3;
     font-weight: bold;
     padding-bottom: 10px;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 20px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nav-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    background-color: #444;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-item a:hover {
+    background-color: #555;
+}
+
+/* Radial sub-menu positioning */
+.sub-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.sub-menu li {
+    position: absolute;
+    transform-origin: 0% 0%;
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Fan-out animation - defining positions for each submenu item */
+.sub-menu li:nth-child(1) {
+    transform: rotate(0deg) translate(50px);
+}
+
+.sub-menu li:nth-child(2) {
+    transform: rotate(45deg) translate(50px);
+}
+
+.sub-menu li:nth-child(3) {
+    transform: rotate(90deg) translate(50px);
+}
+
+/* Display sub-menu on hover */
+.nav-item:hover .sub-menu {
+    pointer-events: all;
+}
+
+.nav-item:hover .sub-menu li {
+    opacity: 1;
+}
+
+/* Animate the radial fan-out on hover */
+.nav-item:hover .sub-menu li:nth-child(1) {
+    transform: rotate(0deg) translate(100px);
+}
+
+.nav-item:hover .sub-menu li:nth-child(2) {
+    transform: rotate(45deg) translate(100px);
+}
+
+.nav-item:hover .sub-menu li:nth-child(3) {
+    transform: rotate(90deg) translate(100px);
+}
+
+/* Styling for sub-menu links */
+.sub-menu li a {
+    color: white;
+    text-decoration: none;
+    background-color: #666;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: block;
+    white-space: nowrap;
+    transition: background-color 0.3s;
+}
+
+.sub-menu li a:hover {
+    background-color: #888;
 }
