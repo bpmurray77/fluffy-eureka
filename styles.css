@@ -231,3 +231,95 @@ p {
     width: 100px;
     height: 100%;
 }
+
+/*Styling for mobile */
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .heading {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 36pt;
+    }
+
+    .logo-container2 {
+        margin: 20px 0;
+    }
+
+    .nav-wrapper {
+        width: 100%;
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .nav-item {
+        margin-bottom: 0;
+    }
+
+    .nav-item > a {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .sub-menu li {
+        position: static;
+        opacity: 1;
+        transform: none !important;
+    }
+
+    .nav-item:hover .sub-menu li {
+        transform: none !important;
+    }
+
+    .sub-menu li a {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    /* Remove the hover area for mobile */
+    .nav-item::after {
+        display: none;
+    }
+}
+
+/* Adjust bootup screen for mobile */
+@media screen and (max-width: 768px) {
+    .bootup-screen {
+        padding: 20px;
+    }
+
+    .logo-container img, .logo-container2 img {
+        width: 150px;
+    }
+
+    .progress-bar {
+        width: 80%;
+        max-width: 200px;
+    }
+
+    .diagonal-line {
+        display: none;
+    }
+}
