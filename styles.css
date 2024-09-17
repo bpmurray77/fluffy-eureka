@@ -158,7 +158,7 @@ p {
 }
 
 .nav-item > a {
-    color: white;
+    color: #a4c8e1;
     text-decoration: none;
     padding: 10px;
     display: block;
@@ -195,22 +195,22 @@ p {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.sub-menu li:nth-child(1) { transform: rotate(0deg) translate(50px); }
-.sub-menu li:nth-child(2) { transform: rotate(45deg) translate(50px); }
-.sub-menu li:nth-child(3) { transform: rotate(90deg) translate(50px); }
+.sub-menu li:nth-child(1) { transform: rotate(-60deg) translate(50px); }
+.sub-menu li:nth-child(2) { transform: rotate(0deg) translate(50px); }
+.sub-menu li:nth-child(3) { transform: rotate(60deg) translate(50px); }
 
 .nav-item:hover .sub-menu li {
     opacity: 1;
 }
 
-.nav-item:hover .sub-menu li:nth-child(1) { transform: rotate(0deg) translate(100px); }
-.nav-item:hover .sub-menu li:nth-child(2) { transform: rotate(45deg) translate(100px); }
-.nav-item:hover .sub-menu li:nth-child(3) { transform: rotate(90deg) translate(100px); }
+.nav-item:hover .sub-menu li:nth-child(1) { transform: rotate(-30deg) translate(100px); }
+.nav-item:hover .sub-menu li:nth-child(2) { transform: rotate(0deg) translate(100px); }
+.nav-item:hover .sub-menu li:nth-child(3) { transform: rotate(30deg) translate(100px); }
 
 .sub-menu li a {
-    color: white;
+    color: #a4c8e1;
     text-decoration: none;
-    background-color: #666;
+    background-color: #0b041a;
     padding: 5px 10px;
     border-radius: 5px;
     display: block;
