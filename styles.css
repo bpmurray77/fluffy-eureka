@@ -1,4 +1,3 @@
-/* General reset */
 * {
     margin: 0;
     padding: 0;
@@ -14,12 +13,11 @@ body, html {
 }
 
 .main-content {
-    display: none; /* Hidden until the bootup sequence finishes */
-    justify-content: space-between; /* Spreads content across the available space */
-    align-items: center; /* Vertically centers the content */
+    display: none;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
-    text-align: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
 }
 
 .bootup-screen {
@@ -38,16 +36,14 @@ body, html {
     transition: opacity 0.5s ease-in-out;
 }
 
-.logo-container img {
+.logo-container img, .logo-container2 img {
     width: 200px;
     height: auto;
 }
 
-.logo-container2 img {
-    width: 200px;
-    height: auto;
-    justify-content: center;
+.logo-container2 {
     display: flex;
+    justify-content: center;
 }
 
 .initializing {
@@ -59,9 +55,8 @@ body, html {
 }
 
 @keyframes blink {
-    0% { opacity: 1; }
+    0%, 100% { opacity: 1; }
     50% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 .progress-bar {
@@ -85,41 +80,18 @@ body, html {
     100% { width: 100%; }
 }
 
-/* Diagonal lines */
 .diagonal-line {
     position: absolute;
     width: 2px;
     height: 100%;
     background-color: #4CAF50;
-}
-
-.top-left {
-    top: 0;
-    left: 0;
-    transform: rotate(45deg);
     animation: drawLine 3s forwards;
 }
 
-.top-right {
-    top: 0;
-    right: 0;
-    transform: rotate(-45deg);
-    animation: drawLine 3s forwards;
-}
-
-.bottom-left {
-    bottom: 0;
-    left: 0;
-    transform: rotate(-45deg);
-    animation: drawLine 3s forwards;
-}
-
-.bottom-right {
-    bottom: 0;
-    right: 0;
-    transform: rotate(45deg);
-    animation: drawLine 3s forwards;
-}
+.top-left { top: 0; left: 0; transform: rotate(45deg); }
+.top-right { top: 0; right: 0; transform: rotate(-45deg); }
+.bottom-left { bottom: 0; left: 0; transform: rotate(-45deg); }
+.bottom-right { bottom: 0; right: 0; transform: rotate(45deg); }
 
 @keyframes drawLine {
     0% { height: 0; }
@@ -136,32 +108,26 @@ ul {
 }
 
 li {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     font-size: large;
     font-weight: bold;
 }
 
-a:visited {
-    color: #d3d3d3;
-}
-
-a:hover {
-    color: #4CAF50;
-}
+a:visited { color: #d3d3d3; }
+a:hover { color: #4CAF50; }
 
 .heading {
-    flex: 1; /* Takes up remaining space on the left */
-    text-align: right; /* Align the text to the right so it's closer to the image */
+    flex: 1;
+    text-align: right;
 }
 
 .logo-container2 {
-    flex: 0; /* Only take as much space as the image needs */
+    flex: 0;
 }
 
 .nav-wrapper {
-    flex: 1; /* Takes up remaining space on the right */
-    text-align: left; /* Align the text to the left so it's closer to the image */
+    flex: 1;
+    text-align: left;
 }
 
 p {
@@ -191,7 +157,7 @@ p {
     margin-bottom: 20px;
 }
 
-.nav-item a {
+.nav-item > a {
     color: white;
     text-decoration: none;
     padding: 10px;
@@ -201,21 +167,25 @@ p {
     transition: background-color 0.3s;
 }
 
-.nav-item a:hover {
-    background-color: #0b041a;
+.nav-item > a:hover {
+    background-color: #1e0b3d;
 }
 
-/* Radial sub-menu positioning */
 .sub-menu {
     position: absolute;
     top: 0;
     left: 100%;
-    width: 0;
-    height: 0;
     list-style: none;
     padding: 0;
     margin: 0;
-    pointer-events: none; /* Prevent interaction when hidden */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.nav-item:hover > .sub-menu {
+    opacity: 1;
+    visibility: visible;
 }
 
 .sub-menu li {
@@ -225,42 +195,18 @@ p {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Fan-out animation - defining positions for each submenu item */
-.sub-menu li:nth-child(1) {
-    transform: rotate(0deg) translate(50px);
-}
-
-.sub-menu li:nth-child(2) {
-    transform: rotate(45deg) translate(50px);
-}
-
-.sub-menu li:nth-child(3) {
-    transform: rotate(90deg) translate(50px);
-}
-
-/* Display sub-menu on hover */
-.nav-item:hover .sub-menu {
-    pointer-events: all;
-}
+.sub-menu li:nth-child(1) { transform: rotate(0deg) translate(50px); }
+.sub-menu li:nth-child(2) { transform: rotate(45deg) translate(50px); }
+.sub-menu li:nth-child(3) { transform: rotate(90deg) translate(50px); }
 
 .nav-item:hover .sub-menu li {
     opacity: 1;
 }
 
-/* Animate the radial fan-out on hover */
-.nav-item:hover .sub-menu li:nth-child(1) {
-    transform: rotate(0deg) translate(100px);
-}
+.nav-item:hover .sub-menu li:nth-child(1) { transform: rotate(0deg) translate(100px); }
+.nav-item:hover .sub-menu li:nth-child(2) { transform: rotate(45deg) translate(100px); }
+.nav-item:hover .sub-menu li:nth-child(3) { transform: rotate(90deg) translate(100px); }
 
-.nav-item:hover .sub-menu li:nth-child(2) {
-    transform: rotate(45deg) translate(100px);
-}
-
-.nav-item:hover .sub-menu li:nth-child(3) {
-    transform: rotate(90deg) translate(100px);
-}
-
-/* Styling for sub-menu links */
 .sub-menu li a {
     color: white;
     text-decoration: none;
@@ -274,4 +220,14 @@ p {
 
 .sub-menu li a:hover {
     background-color: #888;
+}
+
+/* Add this to create a hover area */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100px;
+    height: 100%;
 }
