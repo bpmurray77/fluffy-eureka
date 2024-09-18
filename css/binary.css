@@ -14,19 +14,29 @@ header {
     padding: 1rem;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+.nav-wrapper {
+    margin-top: 20px;
+    margin-left: 33px;
+    position: absolute;
+    bottom: 33px;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 10px;
+.nav-menu {
+    list-style: none;
 }
 
-nav ul li a {
-    color: #fff;
+.nav-item a {
+    color: #a4c8e1;
     text-decoration: none;
+    padding: 10px;
+    display: block;
+    background-color: #0b041a;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-item a:hover {
+    background-color: #1e0b3d;
 }
 
 main {
