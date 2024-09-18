@@ -1,0 +1,105 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #0b041a;
+    color: white;
+}
+
+p {
+    padding-bottom: 20px;
+}
+
+/* Main content layout */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Header styles */
+.heading h1 {
+    color: #6b8f23;
+    font-size: 50pt;
+    margin-bottom: 20px;
+}
+
+/* Logo styles */
+.logo-container2 {
+    margin: 20px 0;
+}
+
+.logo-container2 img {
+    width: 150px;
+    height: auto;
+}
+
+/* Contact info styles */
+.contact-info {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+    color: #d3d3d3;
+    font-weight: bold;
+}
+
+.contact-info a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation styles */
+.nav-wrapper {
+    margin-top: 20px;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item a {
+    color: #a4c8e1;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    background-color: #0b041a;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-item a:hover {
+    background-color: #1e0b3d;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .heading h1 {
+        font-size: 36pt;
+    }
+
+    .logo-container2 img {
+        width: 100px;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+    }
+}

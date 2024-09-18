@@ -101,6 +101,7 @@ body, html {
 h1 {
     color: #6b8f23;
     font-size: 50pt;
+    margin-bottom: 20px;
 }
 
 ul {
@@ -131,7 +132,7 @@ a:hover { color: #4CAF50; }
 }
 
 p {
-    color: #d3d3d3;
+    color: #a4c8e1;
     font-weight: bold;
     padding-bottom: 10px;
 }

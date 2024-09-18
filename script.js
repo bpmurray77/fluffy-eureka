@@ -81,3 +81,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (existing navigation code remains the same) ...
+
+    // Add this new section for handling page transitions
+    const contactLink = document.querySelector('.nav-item a[href="contact.html"]');
+    if (contactLink) {
+        contactLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const mainContent = document.getElementById('mainContent');
+            mainContent.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = 'contact.html';
+            }, 1000); // Adjust this value to match your fade-out duration
+        });
+    }
+});
