@@ -1,0 +1,49 @@
+.ticker-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    z-index: 9999;
+  }
+
+  .ticker {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 15s linear infinite;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  /* Keyframe animation to scroll the ticker */
+  @keyframes scroll {
+    0% {
+      transform: translateX(150%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Styling for the caution tape pattern */
+  .caution-tape {
+    background: repeating-linear-gradient(
+      45deg,
+      yellow,
+      yellow 20px,
+      black 20px,
+      black 40px
+    );
+    padding: 10px 0;
+    color: rgb(0, 0, 0);
+    letter-spacing: 2px;
+    background-size: 100% 100%;
+  }
+
+  /* Text shadow for better readability on both yellow and black */
+  .caution-tape span {
+    text-shadow: 
+      -1px -1px 1px rgb(255, 255, 255),   /* Shadow to create contrast on yellow */
+      1px 1px 2px yellow;    /* Glow effect to stand out on black */
+  }
