@@ -29,10 +29,10 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll('.nav-item');
     const persistenceTime = 2000; // 2 seconds, adjust as needed
-    let timeoutId;
 
     navItems.forEach(item => {
         const subMenu = item.querySelector('.sub-menu');
+        let timeoutId;
         
         item.addEventListener('mouseenter', () => {
             clearTimeout(timeoutId);
@@ -40,6 +40,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         item.addEventListener('mouseleave', () => {
+            timeoutId = setTimeout(() => {
+                subMenu.classList.remove('persist');
+            }, persistenceTime);
+        });
+
+        subMenu.addEventListener('mouseenter', () => {
+            clearTimeout(timeoutId);
+        });
+
+        subMenu.addEventListener('mouseleave', () => {
             timeoutId = setTimeout(() => {
                 subMenu.classList.remove('persist');
             }, persistenceTime);
