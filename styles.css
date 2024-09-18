@@ -253,9 +253,17 @@ p {
 .sub-menu li:nth-child(2) { transform: rotate(0deg) translate(50px); }
 .sub-menu li:nth-child(3) { transform: rotate(60deg) translate(50px); }
 
-.nav-item:hover .sub-menu li {
+.nav-item:hover .sub-menu li,
+.sub-menu.persist li {
     opacity: 1;
 }
+
+.nav-item:hover .sub-menu li:nth-child(1),
+.sub-menu.persist li:nth-child(1) { transform: rotate(-30deg) translate(100px); }
+.nav-item:hover .sub-menu li:nth-child(2),
+.sub-menu.persist li:nth-child(2) { transform: rotate(0deg) translate(100px); }
+.nav-item:hover .sub-menu li:nth-child(3),
+.sub-menu.persist li:nth-child(3) { transform: rotate(30deg) translate(100px); }
 
 .nav-item:hover .sub-menu li:nth-child(1) { transform: rotate(-30deg) translate(100px); }
 .nav-item:hover .sub-menu li:nth-child(2) { transform: rotate(0deg) translate(100px); }

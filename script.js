@@ -28,7 +28,7 @@ window.onload = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll('.nav-item');
-    const persistenceTime = 2000; // 2 seconds, adjust as needed
+    const persistenceTime = 1000; // 2 seconds, adjust as needed
 
     navItems.forEach(item => {
         const subMenu = item.querySelector('.sub-menu');
