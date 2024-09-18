@@ -28,31 +28,26 @@ window.onload = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll('.nav-item');
-    const persistenceTime = 1000; // 2 seconds, adjust as needed
+    const persistenceTime = 2000; // 2 seconds, adjust as needed
 
     navItems.forEach(item => {
         const subMenu = item.querySelector('.sub-menu');
         let timeoutId;
         
-        item.addEventListener('mouseenter', () => {
+        function showSubMenu() {
             clearTimeout(timeoutId);
             subMenu.classList.add('persist');
-        });
+        }
 
-        item.addEventListener('mouseleave', () => {
+        function hideSubMenu() {
             timeoutId = setTimeout(() => {
                 subMenu.classList.remove('persist');
             }, persistenceTime);
-        });
+        }
 
-        subMenu.addEventListener('mouseenter', () => {
-            clearTimeout(timeoutId);
-        });
-
-        subMenu.addEventListener('mouseleave', () => {
-            timeoutId = setTimeout(() => {
-                subMenu.classList.remove('persist');
-            }, persistenceTime);
-        });
+        item.addEventListener('mouseenter', showSubMenu);
+        item.addEventListener('mouseleave', hideSubMenu);
+        subMenu.addEventListener('mouseenter', showSubMenu);
+        subMenu.addEventListener('mouseleave', hideSubMenu);
     });
 });
