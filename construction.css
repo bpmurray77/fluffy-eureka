@@ -10,7 +10,7 @@
   .ticker {
     display: inline-block;
     white-space: nowrap;
-    animation: scroll 15s linear infinite;
+    animation: scroll 14s linear infinite, blink 2.5s ease-in-out infinite;
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
@@ -26,7 +26,11 @@
     }
   }
 
-  /* Styling for the caution tape pattern */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   .caution-tape {
     background: repeating-linear-gradient(
       45deg,
