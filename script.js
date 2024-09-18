@@ -25,3 +25,24 @@ window.onload = function() {
         }, 1000); // This should match the bootup screen fade-out duration
     }, 3000); // Delay before starting the transition
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.nav-item');
+    const persistenceTime = 2000; // 2 seconds, adjust as needed
+    let timeoutId;
+
+    navItems.forEach(item => {
+        const subMenu = item.querySelector('.sub-menu');
+        
+        item.addEventListener('mouseenter', () => {
+            clearTimeout(timeoutId);
+            subMenu.classList.add('persist');
+        });
+
+        item.addEventListener('mouseleave', () => {
+            timeoutId = setTimeout(() => {
+                subMenu.classList.remove('persist');
+            }, persistenceTime);
+        });
+    });
+});

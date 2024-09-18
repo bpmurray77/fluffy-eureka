@@ -157,6 +157,50 @@ p {
     margin-bottom: 20px;
 }
 
+.nav-item:hover > .sub-menu::before {
+    transform: scaleX(1);
+}
+
+.sub-menu::before {
+    content: '';
+    position: absolute;
+    top: 50px; /* Adjust based on your layout */
+    left: 0;
+    width: 20px; /* Width of the horizontal line */
+    height: 3px; /* Thickness of the line */
+    background-color: #4CAF50; /* Color of the line */
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.sub-menu li:nth-child(3)::before {
+    display: none;
+}
+
+.nav-item:hover .sub-menu li:nth-child(1)::before { transition-delay: 0.1s; }
+.nav-item:hover .sub-menu li:nth-child(2)::before { transition-delay: 0.2s; }
+
+.sub-menu li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px; /* Should match the width of the horizontal line */
+    width: 2px; /* Thickness of the vertical line */
+    height: 0;
+    background-color: #4CAF50; /* Color of the line */
+    transform-origin: top center;
+    transition: height 0.3s ease;
+}
+
+.nav-item:hover .sub-menu li::before {
+    height: 100%;
+}
+
+.nav-item:hover .sub-menu li {
+    opacity: 1;
+}
+
 .nav-item > a {
     color: #a4c8e1;
     text-decoration: none;
@@ -173,19 +217,29 @@ p {
 
 .sub-menu {
     position: absolute;
-    top: 0;
+    top: -20px; /* Extend upwards */
     left: 100%;
     list-style: none;
-    padding: 0;
+    padding: 20px 0 20px 20px; /* Add padding to create larger hit area */
     margin: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    pointer-events: none; /* Initially disable pointer events */
 }
 
 .nav-item:hover > .sub-menu {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto; /* Enable pointer events on hover */
+}
+
+.nav-item:hover > .sub-menu,
+.sub-menu.persist {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+    pointer-events: auto;
 }
 
 .sub-menu li {
@@ -226,10 +280,16 @@ p {
 .nav-item::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: -20px; /* Match sub-menu top value */
     left: 100%;
-    width: 100px;
-    height: 100%;
+    width: 200px; /* Adjust as needed */
+    height: calc(100% + 40px); /* Extend beyond the nav item */
+    background-color: transparent;
+    display: none;
+}
+
+.nav-item:hover::after {
+    display: block;
 }
 
 /*Styling for mobile */
