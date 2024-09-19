@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const color = colorPalette[sumDecimal % 256];
 
         // Update the color display (set background color)
-        document.body.style.backgroundColor = color;
+        colorDisplay.style.backgroundColor = color;
     }
 
     // Add click event listeners for Value A bits
