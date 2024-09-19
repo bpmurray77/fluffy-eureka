@@ -4,25 +4,24 @@ window.onload = function() {
 
     // Set initial styles
     bootupScreen.style.opacity = '1';
-    bootupScreen.style.transition = 'opacity 1s ease-in-out';
     mainContent.style.opacity = '0';
-    mainContent.style.transition = 'opacity 2s ease-in-out'; // Adjust this value to control fade-in speed
+    mainContent.style.display = 'none';
 
     // Start the sequence after 3 seconds (adjust if needed)
     setTimeout(() => {
-        // Fade out bootup screen
-        bootupScreen.style.opacity = '0';
+        // Add flicker-out class to bootup screen
+        bootupScreen.classList.add('page-transition-out');
 
-        // Wait for bootup screen to fade out, then switch displays and fade in main content
+        // Wait for bootup screen to flicker out, then switch displays and flicker in main content
         setTimeout(() => {
             bootupScreen.style.display = 'none';
             mainContent.style.display = 'flex';
             
             // Small delay to ensure display change has taken effect
             setTimeout(() => {
-                mainContent.style.opacity = '1';
+                mainContent.classList.add('page-transition-in');
             }, 50);
-        }, 1000); // This should match the bootup screen fade-out duration
+        }, 1000); // This should match the bootup screen flicker-out duration
     }, 3000); // Delay before starting the transition
 };
 
