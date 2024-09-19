@@ -1,0 +1,31 @@
+/* Flicker-out effect when leaving the current page */
+@keyframes flicker-out {
+    0%, 50% { opacity: 1; }
+    51%, 55% { opacity: 0; }
+    60%, 70% { opacity: 1; }
+    80%, 90% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Flicker-in effect when loading the new page */
+@keyframes flicker-in {
+    0% { opacity: 0; }
+    10%, 20% { opacity: 0; }
+    30%, 40% { opacity: 1; }
+    50%, 60% { opacity: 0; }
+    70%, 80% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+.page-transition-out {
+    animation: flicker-out 1s forwards;
+}
+
+.page-transition-in {
+    animation: flicker-in 1s forwards;
+}
+
+/* This will hide the page content at first to trigger the flicker-in effect */
+.hidden {
+    opacity: 0;
+}

@@ -21,6 +21,8 @@ p {
 
 h1 {
     width: 75%;
+    position: absolute;
+    top: 20px;
     color: #6b8f23;
     font-size: 50pt;
     margin-bottom: 20px;
