@@ -41,6 +41,10 @@ body, html {
     height: auto;
 }
 
+.logo-container {
+    animation: flicker 3s forwards;
+}
+
 .logo-container2 {
     display: flex;
     justify-content: center;
@@ -85,7 +89,23 @@ body, html {
     width: 2px;
     height: 100%;
     background-color: #4CAF50;
-    animation: drawLine 3s forwards;
+    animation: drawLine 3s forwards, flicker 3s forwards;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    20% { opacity: 0; }
+    21% { opacity: 1; }
+    23% { opacity: 0; }
+    25% { opacity: 1; }
+    30% { opacity: 0; }
+    50% { opacity: 1; }
+    52% { opacity: 0; }
+    54% { opacity: 1; }
+    56% { opacity: 0; }
+    58% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 1; }
 }
 
 .top-left { top: 0; left: 0; transform: rotate(45deg); }
@@ -95,7 +115,7 @@ body, html {
 
 @keyframes drawLine {
     0% { height: 0; }
-    100% { height: 100%; }
+    100% { height: 150%; }
 }
 
 h1 {

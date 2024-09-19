@@ -14,6 +14,7 @@ function startTest(minutes) {
     // Hide the test option buttons when the test starts
     buttonContainer.style.display = 'none';
     explanation.style.display = 'none';
+    navwrapper2.style.display = 'none';
 
     testDuration = minutes * 60; // Convert minutes to seconds
     lapses = 0;
