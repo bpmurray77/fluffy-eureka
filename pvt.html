@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychomotor Vigilance Test (PVT)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pvt.css">
+</head>
+<body>
+
+    <h1>Psychomotor Vigilance Test (PVT)</h1>
+    <p class="intro">Select the test duration and start the test:</p>
+
+    <div>
+        <div class="button-container" id="button-container">
+            <button class="start-button" onclick="startTest(10)">10-Minute Test</button>
+            <button class="start-button" onclick="startTest(5)">5-Minute Test</button>
+            <button class="start-button" onclick="startTest(2)">2-Minute Test</button>
+        </div>
+        <div class="explanation" id="explanation">
+            <p>The psychomotor vigilance test is a test designed to determine an individual's level of acute psychological and physiological fatigue. NASA has used he PVT on the International Space Station as a way to ensure that </p>
+        </div>
+    </div>
+    
+
+    <div class="test-container" id="test-container">
+        <div class="reaction-box" id="reaction-box" onclick="registerClick()">Click when you see 'CLICK!'</div>
+        <p>Time Remaining: <span id="time-remaining"></span></p>
+        <p>Lapses: <span id="lapses"></span></p>
+        <nav class="nav-wrapper">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="pvt.html">Return to PVT Options</a>
+                    <a href="index.html">Back to Home</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script src="pvt.js"></script>
+</body>
+</html>
