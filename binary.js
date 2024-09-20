@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
         }
         
+        body.setAttribute('fill', '#4CAF50');
         label.setAttribute('x', x + 10);
         label.setAttribute('y', y + 14);
         label.setAttribute('text-anchor', 'middle');
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
             text.setAttribute('x', label.x);
             text.setAttribute('y', label.y);
             text.setAttribute('font-size', '10');
-            text.setAttribute('fill', label.color);  // Set the color of the text
+            text.setAttribute('fill', label.color);
             group.appendChild(text);
         });
         
@@ -130,47 +131,36 @@ document.addEventListener("DOMContentLoaded", function() {
         aluContainer.appendChild(svg);
     }
 
-    function animateALU(a, b) {
+    function updateALU(a, b) {
         const svg = aluContainer.querySelector('svg');
         const wires = svg.querySelectorAll('line');
         const gates = svg.querySelectorAll('path');
 
-        // Reset all colors
-        wires.forEach(wire => wire.style.stroke = '#4CAF50');
-        gates.forEach(gate => gate.style.fill = '#4CAF50');
-
-        // Animate step by step
         let carry = 0;
         for (let i = 7; i >= 0; i--) {
-            setTimeout(() => {
-                const bitA = (a >> i) & 1;
-                const bitB = (b >> i) & 1;
-                const sum = bitA ^ bitB ^ carry;
-                carry = (bitA & bitB) | (carry & (bitA ^ bitB));
+            const bitA = (a >> i) & 1;
+            const bitB = (b >> i) & 1;
+            const sum = bitA ^ bitB ^ carry;
+            const nextCarry = (bitA & bitB) | (carry & (bitA ^ bitB));
 
-                // Highlight input wires
-                wires[i * 10].style.stroke = bitA ? '#ff0000' : '#4CAF50';
-                wires[i * 10 + 1].style.stroke = bitB ? '#ff0000' : '#4CAF50';
-                wires[i * 10 + 9].style.stroke = carry ? '#ff0000' : '#4CAF50';
+            // Update input wires
+            wires[i * 10].style.stroke = bitA ? '#ff0000' : '#4CAF50';
+            wires[i * 10 + 1].style.stroke = bitB ? '#ff0000' : '#4CAF50';
+            wires[i * 10 + 9].style.stroke = carry ? '#ff0000' : '#4CAF50';
 
-                // Highlight gates
-                gates[i * 5].style.fill = '#ff0000'; // XOR1
-                gates[i * 5 + 1].style.fill = '#ff0000'; // XOR2
-                gates[i * 5 + 2].style.fill = '#ff0000'; // AND1
-                gates[i * 5 + 3].style.fill = '#ff0000'; // AND2
-                gates[i * 5 + 4].style.fill = '#ff0000'; // OR
+            // Update gates
+            gates[i * 5].style.fill = (bitA ^ bitB) ? '#ff0000' : '#4CAF50'; // XOR1
+            gates[i * 5 + 1].style.fill = sum ? '#ff0000' : '#4CAF50'; // XOR2
+            gates[i * 5 + 2].style.fill = (bitA & bitB) ? '#ff0000' : '#4CAF50'; // AND1
+            gates[i * 5 + 3].style.fill = ((bitA ^ bitB) & carry) ? '#ff0000' : '#4CAF50'; // AND2
+            gates[i * 5 + 4].style.fill = nextCarry ? '#ff0000' : '#4CAF50'; // OR
 
-                // Highlight output wire
-                wires[i * 10 + 5].style.stroke = sum ? '#ff0000' : '#4CAF50';
-                wires[i * 10 + 8].style.stroke = carry ? '#ff0000' : '#4CAF50';
-            }, (7 - i) * 500);
+            // Update output wire
+            wires[i * 10 + 5].style.stroke = sum ? '#ff0000' : '#4CAF50';
+            wires[i * 10 + 8].style.stroke = nextCarry ? '#ff0000' : '#4CAF50';
+
+            carry = nextCarry;
         }
-
-        // Reset colors after animation
-        setTimeout(() => {
-            wires.forEach(wire => wire.style.stroke = '#4CAF50');
-            gates.forEach(gate => gate.style.fill = '#4CAF50');
-        }, 4500);
     }
 
     function updateSum() {
@@ -191,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const color = colorPalette[sumDecimal % 256];
         colorDisplay.style.backgroundColor = color;
 
-        animateALU(aDecimal, bDecimal);
+        updateALU(aDecimal, bDecimal);
     }
 
     aBits.forEach((bit, index) => {
@@ -211,4 +201,5 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     setupALUAnimation();
+    updateSum(); // Initial update
 });
