@@ -143,21 +143,24 @@ document.addEventListener("DOMContentLoaded", function() {
             const sum = bitA ^ bitB ^ carry;
             const nextCarry = (bitA & bitB) | (carry & (bitA ^ bitB));
 
+            // Calculate the index for the current full adder
+            const adderIndex = 7 - i;
+
             // Update input wires
-            wires[i * 10].style.stroke = bitA ? '#ff0000' : '#4CAF50';
-            wires[i * 10 + 1].style.stroke = bitB ? '#ff0000' : '#4CAF50';
-            wires[i * 10 + 9].style.stroke = carry ? '#ff0000' : '#4CAF50';
+            wires[adderIndex * 10].style.stroke = bitA ? '#ff0000' : '#4CAF50';
+            wires[adderIndex * 10 + 1].style.stroke = bitB ? '#ff0000' : '#4CAF50';
+            wires[adderIndex * 10 + 9].style.stroke = carry ? '#ff0000' : '#4CAF50';
 
             // Update gates
-            gates[i * 5].style.fill = (bitA ^ bitB) ? '#ff0000' : '#4CAF50'; // XOR1
-            gates[i * 5 + 1].style.fill = sum ? '#ff0000' : '#4CAF50'; // XOR2
-            gates[i * 5 + 2].style.fill = (bitA & bitB) ? '#ff0000' : '#4CAF50'; // AND1
-            gates[i * 5 + 3].style.fill = ((bitA ^ bitB) & carry) ? '#ff0000' : '#4CAF50'; // AND2
-            gates[i * 5 + 4].style.fill = nextCarry ? '#ff0000' : '#4CAF50'; // OR
+            gates[adderIndex * 5].style.fill = (bitA ^ bitB) ? '#ff0000' : '#4CAF50'; // XOR1
+            gates[adderIndex * 5 + 1].style.fill = sum ? '#ff0000' : '#4CAF50'; // XOR2
+            gates[adderIndex * 5 + 2].style.fill = (bitA & bitB) ? '#ff0000' : '#4CAF50'; // AND1
+            gates[adderIndex * 5 + 3].style.fill = ((bitA ^ bitB) & carry) ? '#ff0000' : '#4CAF50'; // AND2
+            gates[adderIndex * 5 + 4].style.fill = nextCarry ? '#ff0000' : '#4CAF50'; // OR
 
             // Update output wire
-            wires[i * 10 + 5].style.stroke = sum ? '#ff0000' : '#4CAF50';
-            wires[i * 10 + 8].style.stroke = nextCarry ? '#ff0000' : '#4CAF50';
+            wires[adderIndex * 10 + 5].style.stroke = sum ? '#ff0000' : '#4CAF50';
+            wires[adderIndex * 10 + 8].style.stroke = nextCarry ? '#ff0000' : '#4CAF50';
 
             carry = nextCarry;
         }
