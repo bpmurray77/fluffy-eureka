@@ -130,11 +130,11 @@ function createFullAdder(bitIndex) {
             <circle id="gate-xor2-${bitIndex}" cx="290" cy="175" r="25" fill="#fff" stroke="#000"/>
             <text x="275" y="180" font-family="Arial" font-size="12">XOR</text>
             
-            <circle id="gate-and1-${bitIndex}" cx="140" cy="100" r="25" fill="#fff" stroke="#000"/>
+            <path id="gate-and1-${bitIndex}" d="M163.5 76.495c.5 30.505 2.55 51.2975-22.95 51.2975-28.05 0-23.8-20.9525-24.225-51.442" fill="#fff" stroke="#000"/>
             <text x="127" y="105" font-family="Arial" font-size="12">AND</text>
             
-            <circle id="gate-and2-${bitIndex}" cx="220" cy="175" r="25" fill="#fff" stroke="#000"/>
-            <text x="205" y="180" font-family="Arial" font-size="12">AND</text>
+            <path id="gate-and2-${bitIndex}" d="M244.5 151.495c.5 30.505 2.55 51.2975-22.95 51.2975-28.05 0-23.8-20.9525-24.225-51.442" fill="#fff" stroke="#000"/>
+            <text x="207" y="180" font-family="Arial" font-size="12">AND</text>
             
             <circle id="gate-or-${bitIndex}" cx="150" cy="235" r="25" fill="#fff" stroke="#000"/>
             <text x="140" y="235" font-family="Arial" font-size="12">OR</text>
