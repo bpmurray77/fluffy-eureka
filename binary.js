@@ -107,3 +107,115 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// Create the Full Adder circuit
+function createFullAdder() {
+    const adder = document.createElement('div');
+    adder.className = 'full-adder';
+    adder.innerHTML = `
+        <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+            <line id="wire-a" x1="20" y1="50" x2="100" y2="50" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-b" x1="20" y1="100" x2="100" y2="100" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-cin" x1="20" y1="150" x2="100" y2="150" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-xor1-out" x1="150" y1="75" x2="200" y2="75" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-xor2-out" x1="250" y1="100" x2="350" y2="100" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-and1-out" x1="150" y1="200" x2="200" y2="200" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-and2-out" x1="250" y1="225" x2="300" y2="225" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-or-out" x1="350" y1="212" x2="380" y2="212" stroke="#ccc" stroke-width="2"/>
+            
+            <circle id="gate-xor1" cx="125" cy="75" r="25" fill="#fff" stroke="#000"/>
+            <text x="115" y="80" font-family="Arial" font-size="12">XOR</text>
+            
+            <circle id="gate-xor2" cx="225" cy="100" r="25" fill="#fff" stroke="#000"/>
+            <text x="215" y="105" font-family="Arial" font-size="12">XOR</text>
+            
+            <circle id="gate-and1" cx="125" cy="200" r="25" fill="#fff" stroke="#000"/>
+            <text x="115" y="205" font-family="Arial" font-size="12">AND</text>
+            
+            <circle id="gate-and2" cx="225" cy="225" r="25" fill="#fff" stroke="#000"/>
+            <text x="215" y="230" font-family="Arial" font-size="12">AND</text>
+            
+            <circle id="gate-or" cx="325" cy="212" r="25" fill="#fff" stroke="#000"/>
+            <text x="320" y="217" font-family="Arial" font-size="12">OR</text>
+            
+            <text id="label-a" x="5" y="55" font-family="Arial" font-size="12">A</text>
+            <text id="label-b" x="5" y="105" font-family="Arial" font-size="12">B</text>
+            <text id="label-cin" x="5" y="155" font-family="Arial" font-size="12">Cin</text>
+            <text id="label-sum" x="360" y="105" font-family="Arial" font-size="12">Sum</text>
+            <text id="label-cout" x="360" y="217" font-family="Arial" font-size="12">Cout</text>
+        </svg>
+    `;
+    return adder;
+}
+
+// Update the Full Adder circuit based on inputs
+function updateFullAdder(a, b, cin) {
+    const xor1 = a ^ b;
+    const xor2 = xor1 ^ cin;
+    const and1 = a & b;
+    const and2 = xor1 & cin;
+    const or = and1 | and2;
+
+    updateWire('wire-a', a);
+    updateWire('wire-b', b);
+    updateWire('wire-cin', cin);
+    updateWire('wire-xor1-out', xor1);
+    updateWire('wire-xor2-out', xor2);
+    updateWire('wire-and1-out', and1);
+    updateWire('wire-and2-out', and2);
+    updateWire('wire-or-out', or);
+
+    updateGate('gate-xor1', xor1);
+    updateGate('gate-xor2', xor2);
+    updateGate('gate-and1', and1);
+    updateGate('gate-and2', and2);
+    updateGate('gate-or', or);
+
+    updateLabel('label-a', a);
+    updateLabel('label-b', b);
+    updateLabel('label-cin', cin);
+    updateLabel('label-sum', xor2);
+    updateLabel('label-cout', or);
+}
+
+function updateWire(id, value) {
+    const wire = document.getElementById(id);
+    wire.style.stroke = value ? '#4CAF50' : '#FF5252';
+}
+
+function updateGate(id, value) {
+    const gate = document.getElementById(id);
+    gate.style.fill = value ? '#4CAF50' : '#FF5252';
+}
+
+function updateLabel(id, value) {
+    const label = document.getElementById(id);
+    label.style.fill = value ? '#4CAF50' : '#FF5252';
+}
+
+// Initialize the Full Adder
+document.addEventListener('DOMContentLoaded', () => {
+    const adderContainer = document.getElementById('full-adder-container');
+    adderContainer.appendChild(createFullAdder());
+    
+    // Initial update (all inputs 0)
+    updateFullAdder(0, 0, 0);
+});
+
+// Example of how to update the adder when your calculator inputs change
+function onCalculatorInputChange() {
+    // Delay the circuit update to allow the bit state (active class) to apply first
+    setTimeout(() => {
+        const a = document.getElementById('a-bit-8').classList.contains('active') ? 1 : 0;
+        const b = document.getElementById('b-bit-8').classList.contains('active') ? 1 : 0;
+        const cin = 0; // Assuming this is the first (rightmost) bit, carry-in is 0
+        
+        // Update the full adder circuit after ensuring the state of the bits has been fully updated
+        updateFullAdder(a, b, cin);
+    }, 0);
+}
+
+// Add this to your existing event listeners for the calculator bits
+document.querySelectorAll('#row-a .bit, #row-b .bit').forEach(bit => {
+    bit.addEventListener('click', onCalculatorInputChange);
+});

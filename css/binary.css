@@ -201,3 +201,10 @@ li {
 #decimal-sum {
     margin-right: 20px;
 }
+
+.full-adder {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
