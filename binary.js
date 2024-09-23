@@ -195,50 +195,33 @@ function updateLabel(id, value) {
 
 // Initialize the Full Adder
 document.addEventListener('DOMContentLoaded', () => {
-    const adderContainer = document.getElementById('full-adder-container');
+    const adderContainer = document.getElementById('bit-circuit-7');
     adderContainer.appendChild(createFullAdder());
     
     // Initial update (all inputs 0)
     updateFullAdder(0, 0, 0);
 });
 
-function calculateCarry(position) {
-    let carry = 0;
-    for (let i = position + 1; i <= 8; i++) {  // Assuming 8-bit numbers
-        const a = document.getElementById(`a-bit-${i}`).classList.contains('active') ? 1 : 0;
-        const b = document.getElementById(`b-bit-${i}`).classList.contains('active') ? 1 : 0;
-        if (i === 8) {  // Least significant bit
-            carry = 0;  // No carry-in for the rightmost bit
-        } else if (i === position + 1) {  // Bit just to the right of our target
-            carry = a & b;  // Carry is 1 only if both a and b are 1
-        } else {
-            carry = (a & b) | ((a ^ b) & carry);  // Full carry calculation
-        }
-        if (carry === 0) break;  // If no carry, we can stop calculating
-    }
-    return carry;
-}
-
 // Example of how to update the adder when your calculator inputs change
 function onCalculatorInputChange() {
     // Delay the circuit update to allow the bit state (active class) to apply first
     setTimeout(() => {
-        const a3 = document.getElementById('a-bit-7').classList.contains('active') ? 1 : 0;
-        const b3 = document.getElementById('b-bit-7').classList.contains('active') ? 1 : 0;
+        const a7 = document.getElementById('a-bit-7').classList.contains('active') ? 1 : 0;
+        const b7 = document.getElementById('b-bit-7').classList.contains('active') ? 1 : 0;
     
-        const a4 = document.getElementById('a-bit-8').classList.contains('active') ? 1 : 0;
-        const b4 = document.getElementById('b-bit-8').classList.contains('active') ? 1 : 0;
+        const a8 = document.getElementById('a-bit-8').classList.contains('active') ? 1 : 0;
+        const b8 = document.getElementById('b-bit-8').classList.contains('active') ? 1 : 0;
         
         // Calculate the carry-out (Cout) for bit 4
-        const xor4 = a4 ^ b4;        // XOR for bit 4 (sum part)
-        const and4 = a4 & b4;        // AND for bit 4 (part of carry-out)
-        const cout4 = and4 | (xor4 & 0);  // Cin for bit 4 is assumed to be 0 if it's LSB
+        const xor8 = a8 ^ b8;        // XOR for bit 4 (sum part)
+        const and8 = a8 & b8;        // AND for bit 4 (part of carry-out)
+        const cout8 = and8 | (xor8 & 0);  // Cin for bit 4 is assumed to be 0 if it's LSB
 
         // Now, cout4 will be the carry-in (Cin) for bit 3
-        const cin3 = cout4;
+        const cin7 = cout8;
 
         // Update the full adder for bit 3, passing in the calculated carry-in
-        updateFullAdder(a3, b3, cin3);
+        updateFullAdder(a7, b7, cin7);
     }, 0);
 }
 

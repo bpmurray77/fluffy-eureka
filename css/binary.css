@@ -208,3 +208,17 @@ li {
     padding: 10px;
     border-radius: 5px;
 }
+
+.bit-circuit-container {
+    display: flex; /* Aligns the bit circuits horizontally */
+    justify-content: space-between; /* Space them out evenly */
+    padding: 10px;
+    gap: 10px; /* Space between each circuit */
+}
+
+.bit-circuit {
+    flex: 1; /* Allows each circuit to scale according to available space */
+    transform: scale(0.8); /* Shrinks the circuit to 80% of its original size */
+    /* Adjust size as needed */
+    max-width: 100px; /* Optional: limit the width */
+}
