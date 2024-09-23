@@ -56,7 +56,7 @@ footer {
 }
 
 .calculator-container {
-    width: 55%; /* Take 40% of the page width */
+    width: 65%; /* Take 40% of the page width */
     position: relative; /* Position relative for sticky effect */
     margin-top: 25px;
 }
@@ -73,6 +73,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .binary-row-3 {
@@ -92,8 +93,9 @@ h2 {
 
 .bit-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 10px;
+    width: 100%;
 }
 
 .bit {
@@ -140,6 +142,7 @@ h2 {
 .binary-row-container {
     display: flex;
     align-items: center;
+    width: 100%;
     margin-bottom: 20px;
     margin-right: 120px;
 }
@@ -155,6 +158,7 @@ h2 {
 .binary-row-container-3 {
     display: flex;
     align-items: center;
+    width: 100%;
     margin-bottom: 20px;
     margin-right: 120px;
 }
@@ -203,6 +207,7 @@ li {
     display: flex; /* Aligns the bit circuits horizontally */
     justify-content: space-between; /* Space them out evenly */
     gap: 65px; /* Space between each circuit */
+    width: 65%;
 }
 
 .bit-circuit {
