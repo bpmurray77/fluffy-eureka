@@ -113,15 +113,15 @@ function createFullAdder() {
     const adder = document.createElement('div');
     adder.className = 'full-adder';
     adder.innerHTML = `
-        <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
-            <line id="wire-a" x1="33" y1="20" x2="33" y2="100" stroke="#ccc" stroke-width="2"/>
-            <path id="wire-b" d="M200 14v67m0-41H140v40" fill="none" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-cin" x1="20" y1="150" x2="100" y2="150" stroke="#ccc" stroke-width="2"/>
+        <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+            <path id="wire-a" d="M128 80V40h60m0 41V17" fill="none" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-b" d="M152 95V55h60m0 41V17" fill="none" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-cin" d="M300 51V160m0-44H230v44" fill="none" stroke="#ccc" stroke-width="2"/>
             <path id="wire-xor1-out" d="M200 110v30h92v32m-72-32v30" fill="none" stroke="#ccc" stroke-width="2"/>
             <line id="wire-xor2-out" x1="290" y1="175" x2="290" y2="250" stroke="#ccc" stroke-width="2"/>
             <path id="wire-and1-out" d="M140 100V235" fill="none" stroke="#ccc" stroke-width="2"/>
             <path id="wire-and2-out" d="M220 176v59H157" fill="none" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-or-out" x1="350" y1="212" x2="380" y2="212" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-or-out" x1="150" y1="235" x2="150" y2="300" stroke="#ccc" stroke-width="2"/>
             
             <circle id="gate-xor1" cx="200" cy="100" r="25" fill="#fff" stroke="#000"/>
             <text x="190" y="105" font-family="Arial" font-size="12">XOR</text>
@@ -138,11 +138,11 @@ function createFullAdder() {
             <circle id="gate-or" cx="150" cy="235" r="25" fill="#fff" stroke="#000"/>
             <text x="140" y="235" font-family="Arial" font-size="12">OR</text>
             
-            <text id="label-a" x="30" y="10" font-family="Arial" font-size="12">A</text>
-            <text id="label-b" x="197" y="10" font-family="Arial" font-size="12">B</text>
-            <text id="label-cin" x="5" y="155" font-family="Arial" font-size="12">Cin</text>
+            <text id="label-a" x="183" y="10" font-family="Arial" font-size="12">A</text>
+            <text id="label-b" x="210" y="10" font-family="Arial" font-size="12">B</text>
+            <text id="label-cin" x="287" y="45" font-family="Arial" font-size="12">Cin</text>
             <text id="label-sum" x="277" y="270" font-family="Arial" font-size="12">Sum</text>
-            <text id="label-cout" x="360" y="217" font-family="Arial" font-size="12">Cout</text>
+            <text id="label-cout" x="135" y="320" font-family="Arial" font-size="12">Cout</text>
         </svg>
     `;
     return adder;
