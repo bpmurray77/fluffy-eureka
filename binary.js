@@ -114,34 +114,34 @@ function createFullAdder() {
     adder.className = 'full-adder';
     adder.innerHTML = `
         <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
-            <line id="wire-a" x1="20" y1="50" x2="100" y2="50" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-b" x1="20" y1="100" x2="100" y2="100" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-a" x1="33" y1="20" x2="33" y2="100" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-b" d="M200 14v67m0-41H140v40" fill="none" stroke="#ccc" stroke-width="2"/>
             <line id="wire-cin" x1="20" y1="150" x2="100" y2="150" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-xor1-out" x1="150" y1="75" x2="200" y2="75" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-xor2-out" x1="250" y1="100" x2="350" y2="100" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-and1-out" x1="150" y1="200" x2="200" y2="200" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-and2-out" x1="250" y1="225" x2="300" y2="225" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-xor1-out" d="M200 110v30h92v32m-72-32v30" fill="none" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-xor2-out" x1="290" y1="175" x2="290" y2="250" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-and1-out" d="M140 100V235" fill="none" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-and2-out" d="M220 176v59H157" fill="none" stroke="#ccc" stroke-width="2"/>
             <line id="wire-or-out" x1="350" y1="212" x2="380" y2="212" stroke="#ccc" stroke-width="2"/>
             
-            <circle id="gate-xor1" cx="125" cy="75" r="25" fill="#fff" stroke="#000"/>
-            <text x="115" y="80" font-family="Arial" font-size="12">XOR</text>
+            <circle id="gate-xor1" cx="200" cy="100" r="25" fill="#fff" stroke="#000"/>
+            <text x="190" y="105" font-family="Arial" font-size="12">XOR</text>
             
-            <circle id="gate-xor2" cx="225" cy="100" r="25" fill="#fff" stroke="#000"/>
-            <text x="215" y="105" font-family="Arial" font-size="12">XOR</text>
+            <circle id="gate-xor2" cx="290" cy="175" r="25" fill="#fff" stroke="#000"/>
+            <text x="275" y="180" font-family="Arial" font-size="12">XOR</text>
             
-            <circle id="gate-and1" cx="125" cy="200" r="25" fill="#fff" stroke="#000"/>
-            <text x="115" y="205" font-family="Arial" font-size="12">AND</text>
+            <circle id="gate-and1" cx="140" cy="100" r="25" fill="#fff" stroke="#000"/>
+            <text x="127" y="105" font-family="Arial" font-size="12">AND</text>
             
-            <circle id="gate-and2" cx="225" cy="225" r="25" fill="#fff" stroke="#000"/>
-            <text x="215" y="230" font-family="Arial" font-size="12">AND</text>
+            <circle id="gate-and2" cx="220" cy="175" r="25" fill="#fff" stroke="#000"/>
+            <text x="205" y="180" font-family="Arial" font-size="12">AND</text>
             
-            <circle id="gate-or" cx="325" cy="212" r="25" fill="#fff" stroke="#000"/>
-            <text x="320" y="217" font-family="Arial" font-size="12">OR</text>
+            <circle id="gate-or" cx="150" cy="235" r="25" fill="#fff" stroke="#000"/>
+            <text x="140" y="235" font-family="Arial" font-size="12">OR</text>
             
-            <text id="label-a" x="5" y="55" font-family="Arial" font-size="12">A</text>
-            <text id="label-b" x="5" y="105" font-family="Arial" font-size="12">B</text>
+            <text id="label-a" x="30" y="10" font-family="Arial" font-size="12">A</text>
+            <text id="label-b" x="197" y="10" font-family="Arial" font-size="12">B</text>
             <text id="label-cin" x="5" y="155" font-family="Arial" font-size="12">Cin</text>
-            <text id="label-sum" x="360" y="105" font-family="Arial" font-size="12">Sum</text>
+            <text id="label-sum" x="277" y="270" font-family="Arial" font-size="12">Sum</text>
             <text id="label-cout" x="360" y="217" font-family="Arial" font-size="12">Cout</text>
         </svg>
     `;
