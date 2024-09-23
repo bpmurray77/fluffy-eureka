@@ -109,120 +109,123 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Create the Full Adder circuit
-function createFullAdder() {
+// Create a Full Adder SVG for a specific bit index (1 to 8)
+function createFullAdder(bitIndex) {
     const adder = document.createElement('div');
     adder.className = 'full-adder';
     adder.innerHTML = `
         <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-            <path id="wire-a" d="M128 80V40h60m0 41V17" fill="none" stroke="#ccc" stroke-width="2"/>
-            <path id="wire-b" d="M152 95V55h60m0 41V17" fill="none" stroke="#ccc" stroke-width="2"/>
-            <path id="wire-cin" d="M300 51V160m0-44H230v44" fill="none" stroke="#ccc" stroke-width="2"/>
-            <path id="wire-xor1-out" d="M200 110v30h92v32m-72-32v30" fill="none" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-xor2-out" x1="290" y1="175" x2="290" y2="250" stroke="#ccc" stroke-width="2"/>
-            <path id="wire-and1-out" d="M140 100V235" fill="none" stroke="#ccc" stroke-width="2"/>
-            <path id="wire-and2-out" d="M220 176v59H157" fill="none" stroke="#ccc" stroke-width="2"/>
-            <line id="wire-or-out" x1="150" y1="235" x2="150" y2="300" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-a-${bitIndex}" d="M128 80V40h60m0 41V17" fill="none" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-b-${bitIndex}" d="M152 95V55h60m0 41V17" fill="none" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-cin-${bitIndex}" d="M300 51V160m0-44H230v44" fill="none" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-xor1-out-${bitIndex}" d="M200 110v30h92v32m-72-32v30" fill="none" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-xor2-out-${bitIndex}" x1="290" y1="175" x2="290" y2="250" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-and1-out-${bitIndex}" d="M140 100V235" fill="none" stroke="#ccc" stroke-width="2"/>
+            <path id="wire-and2-out-${bitIndex}" d="M220 176v59H157" fill="none" stroke="#ccc" stroke-width="2"/>
+            <line id="wire-or-out-${bitIndex}" x1="150" y1="235" x2="150" y2="300" stroke="#ccc" stroke-width="2"/>
             
-            <circle id="gate-xor1" cx="200" cy="100" r="25" fill="#fff" stroke="#000"/>
+            <circle id="gate-xor1-${bitIndex}" cx="200" cy="100" r="25" fill="#fff" stroke="#000"/>
             <text x="190" y="105" font-family="Arial" font-size="12">XOR</text>
             
-            <circle id="gate-xor2" cx="290" cy="175" r="25" fill="#fff" stroke="#000"/>
+            <circle id="gate-xor2-${bitIndex}" cx="290" cy="175" r="25" fill="#fff" stroke="#000"/>
             <text x="275" y="180" font-family="Arial" font-size="12">XOR</text>
             
-            <circle id="gate-and1" cx="140" cy="100" r="25" fill="#fff" stroke="#000"/>
+            <circle id="gate-and1-${bitIndex}" cx="140" cy="100" r="25" fill="#fff" stroke="#000"/>
             <text x="127" y="105" font-family="Arial" font-size="12">AND</text>
             
-            <circle id="gate-and2" cx="220" cy="175" r="25" fill="#fff" stroke="#000"/>
+            <circle id="gate-and2-${bitIndex}" cx="220" cy="175" r="25" fill="#fff" stroke="#000"/>
             <text x="205" y="180" font-family="Arial" font-size="12">AND</text>
             
-            <circle id="gate-or" cx="150" cy="235" r="25" fill="#fff" stroke="#000"/>
+            <circle id="gate-or-${bitIndex}" cx="150" cy="235" r="25" fill="#fff" stroke="#000"/>
             <text x="140" y="235" font-family="Arial" font-size="12">OR</text>
             
-            <text id="label-a" x="183" y="10" font-family="Arial" font-size="12">A</text>
-            <text id="label-b" x="210" y="10" font-family="Arial" font-size="12">B</text>
-            <text id="label-cin" x="287" y="45" font-family="Arial" font-size="12">Cin</text>
-            <text id="label-sum" x="277" y="270" font-family="Arial" font-size="12">Sum</text>
-            <text id="label-cout" x="135" y="320" font-family="Arial" font-size="12">Cout</text>
+            <text id="label-a-${bitIndex}" x="183" y="10" font-family="Arial" font-size="12">A</text>
+            <text id="label-b-${bitIndex}" x="210" y="10" font-family="Arial" font-size="12">B</text>
+            <text id="label-cin-${bitIndex}" x="287" y="45" font-family="Arial" font-size="12">Cin</text>
+            <text id="label-sum-${bitIndex}" x="277" y="270" font-family="Arial" font-size="12">Sum</text>
+            <text id="label-cout-${bitIndex}" x="135" y="320" font-family="Arial" font-size="12">Cout</text>
         </svg>
     `;
     return adder;
 }
 
-// Update the Full Adder circuit based on inputs
-function updateFullAdder(a, b, cin) {
+// Update the Full Adder circuit for a specific bit index (1 to 8) based on inputs
+function updateFullAdder(bitIndex, a, b, cin) {
     const xor1 = a ^ b;
     const xor2 = xor1 ^ cin;
     const and1 = a & b;
     const and2 = xor1 & cin;
     const or = and1 | and2;
 
-    updateWire('wire-a', a);
-    updateWire('wire-b', b);
-    updateWire('wire-cin', cin);
-    updateWire('wire-xor1-out', xor1);
-    updateWire('wire-xor2-out', xor2);
-    updateWire('wire-and1-out', and1);
-    updateWire('wire-and2-out', and2);
-    updateWire('wire-or-out', or);
+    updateWire(`wire-a-${bitIndex}`, a);
+    updateWire(`wire-b-${bitIndex}`, b);
+    updateWire(`wire-cin-${bitIndex}`, cin);
+    updateWire(`wire-xor1-out-${bitIndex}`, xor1);
+    updateWire(`wire-xor2-out-${bitIndex}`, xor2);
+    updateWire(`wire-and1-out-${bitIndex}`, and1);
+    updateWire(`wire-and2-out-${bitIndex}`, and2);
+    updateWire(`wire-or-out-${bitIndex}`, or);
 
-    updateGate('gate-xor1', xor1);
-    updateGate('gate-xor2', xor2);
-    updateGate('gate-and1', and1);
-    updateGate('gate-and2', and2);
-    updateGate('gate-or', or);
+    updateGate(`gate-xor1-${bitIndex}`, xor1);
+    updateGate(`gate-xor2-${bitIndex}`, xor2);
+    updateGate(`gate-and1-${bitIndex}`, and1);
+    updateGate(`gate-and2-${bitIndex}`, and2);
+    updateGate(`gate-or-${bitIndex}`, or);
 
-    updateLabel('label-a', a);
-    updateLabel('label-b', b);
-    updateLabel('label-cin', cin);
-    updateLabel('label-sum', xor2);
-    updateLabel('label-cout', or);
+    updateLabel(`label-a-${bitIndex}`, a);
+    updateLabel(`label-b-${bitIndex}`, b);
+    updateLabel(`label-cin-${bitIndex}`, cin);
+    updateLabel(`label-sum-${bitIndex}`, xor2);
+    updateLabel(`label-cout-${bitIndex}`, or);
+
+    return or; // Return the carry-out for the next bit
 }
 
+// Initialize the Full Adders for all bits (1 to 8)
+document.addEventListener('DOMContentLoaded', () => {
+    for (let i = 1; i <= 8; i++) {
+        const adderContainer = document.getElementById(`bit-circuit-${i}`);
+        adderContainer.appendChild(createFullAdder(i));
+    }
+    
+    // Initial update (all inputs 0)
+    updateAllFullAdders();
+});
+
+// Update all Full Adders based on the state of the calculator
+function updateAllFullAdders() {
+    let carry = 0;
+
+    for (let i = 8; i >= 1; i--) { // Loop from bit 8 down to 1
+        const a = document.getElementById(`a-bit-${i}`).classList.contains('active') ? 1 : 0;
+        const b = document.getElementById(`b-bit-${i}`).classList.contains('active') ? 1 : 0;
+        carry = updateFullAdder(i, a, b, carry); // Pass the carry from the previous bit
+    }
+}
+
+// Event listener for input changes on the calculator bits
+document.querySelectorAll('#row-a .bit, #row-b .bit').forEach(bit => {
+    bit.addEventListener('click', () => {
+        setTimeout(updateAllFullAdders, 0); // Update all adders after the bit state changes
+    });
+});
+
+// Update wire stroke based on value (for each bit index)
 function updateWire(id, value) {
     const wire = document.getElementById(id);
     wire.style.stroke = value ? '#4CAF50' : '#FF5252';
 }
 
+// Update gate fill based on value (for each bit index)
 function updateGate(id, value) {
     const gate = document.getElementById(id);
     gate.style.fill = value ? '#4CAF50' : '#FF5252';
 }
 
+// Update label text fill color based on value (for each bit index)
 function updateLabel(id, value) {
     const label = document.getElementById(id);
     label.style.fill = value ? '#4CAF50' : '#FF5252';
-}
-
-// Initialize the Full Adder
-document.addEventListener('DOMContentLoaded', () => {
-    const adderContainer = document.getElementById('bit-circuit-7');
-    adderContainer.appendChild(createFullAdder());
-    
-    // Initial update (all inputs 0)
-    updateFullAdder(0, 0, 0);
-});
-
-// Example of how to update the adder when your calculator inputs change
-function onCalculatorInputChange() {
-    // Delay the circuit update to allow the bit state (active class) to apply first
-    setTimeout(() => {
-        const a7 = document.getElementById('a-bit-7').classList.contains('active') ? 1 : 0;
-        const b7 = document.getElementById('b-bit-7').classList.contains('active') ? 1 : 0;
-    
-        const a8 = document.getElementById('a-bit-8').classList.contains('active') ? 1 : 0;
-        const b8 = document.getElementById('b-bit-8').classList.contains('active') ? 1 : 0;
-        
-        // Calculate the carry-out (Cout) for bit 4
-        const xor8 = a8 ^ b8;        // XOR for bit 4 (sum part)
-        const and8 = a8 & b8;        // AND for bit 4 (part of carry-out)
-        const cout8 = and8 | (xor8 & 0);  // Cin for bit 4 is assumed to be 0 if it's LSB
-
-        // Now, cout4 will be the carry-in (Cin) for bit 3
-        const cin7 = cout8;
-
-        // Update the full adder for bit 3, passing in the calculated carry-in
-        updateFullAdder(a7, b7, cin7);
-    }, 0);
 }
 
 // Add this to your existing event listeners for the calculator bits

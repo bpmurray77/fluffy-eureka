@@ -17,8 +17,6 @@ header {
 .nav-wrapper {
     margin-top: 20px;
     margin-left: 33px;
-    position: absolute;
-    bottom: 33px;
 }
 
 .nav-menu {
@@ -58,9 +56,9 @@ footer {
 }
 
 .calculator-container {
-    width: 40%; /* Take 40% of the page width */
+    width: 55%; /* Take 40% of the page width */
     position: relative; /* Position relative for sticky effect */
-    margin-top: 55px;
+    margin-top: 25px;
 }
 
 h1 {
@@ -159,7 +157,6 @@ h2 {
     align-items: center;
     margin-bottom: 20px;
     margin-right: 120px;
-    margin-top: 125px;
 }
 
 /* Ensure all labels have the same fixed width to prevent misalignment */
@@ -191,7 +188,7 @@ li {
 }
 
 .documentation-container {
-    width: 55%; /* Take 55% of the page width */
+    width: 30%; /* Take 55% of the page width */
     padding-left: 20px;
     margin-right: 3%;
     max-height: 100vh;
@@ -202,23 +199,15 @@ li {
     margin-right: 20px;
 }
 
-.full-adder {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 5px;
-}
-
 .bit-circuit-container {
     display: flex; /* Aligns the bit circuits horizontally */
     justify-content: space-between; /* Space them out evenly */
-    padding: 10px;
-    gap: 10px; /* Space between each circuit */
+    gap: 65px; /* Space between each circuit */
 }
 
 .bit-circuit {
     flex: 1; /* Allows each circuit to scale according to available space */
-    transform: scale(0.8); /* Shrinks the circuit to 80% of its original size */
+    transform: scale(0.65); /* Shrinks the circuit to 80% of its original size */
     /* Adjust size as needed */
-    max-width: 100px; /* Optional: limit the width */
+    max-width: 80px; /* Optional: limit the width */
 }
