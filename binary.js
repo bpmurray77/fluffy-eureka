@@ -228,11 +228,6 @@ function updateLabel(id, value) {
     label.style.fill = value ? '#4CAF50' : '#FF5252';
 }
 
-// Add this to your existing event listeners for the calculator bits
-document.querySelectorAll('#row-a .bit, #row-b .bit').forEach(bit => {
-    bit.addEventListener('click', onCalculatorInputChange);
-});
-
 document.addEventListener("DOMContentLoaded", function() {
     const inputA = document.getElementById('inputA');
     const inputB = document.getElementById('inputB');
