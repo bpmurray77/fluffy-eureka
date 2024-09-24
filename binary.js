@@ -233,3 +233,33 @@ document.querySelectorAll('#row-a .bit, #row-b .bit').forEach(bit => {
     bit.addEventListener('click', onCalculatorInputChange);
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const inputA = document.getElementById('inputA');
+    const inputB = document.getElementById('inputB');
+    const transistorA = document.getElementById('transistorA');
+    const transistorB = document.getElementById('transistorB');
+    const output = document.getElementById('output');
+
+    let stateA = false;
+    let stateB = false;
+
+    function updateTransistor() {
+        transistorA.setAttribute('fill', stateA ? 'green' : 'red');
+        transistorB.setAttribute('fill', stateB ? 'green' : 'red');
+        transistorA.style.transform = stateA ? 'translateX(10px)' : 'translateX(0)';
+        transistorB.style.transform = stateB ? 'translateX(10px)' : 'translateX(0)';
+        output.setAttribute('fill', (stateA && stateB) ? 'green' : 'red');
+    }
+
+    inputA.addEventListener('click', () => {
+        stateA = !stateA;
+        inputA.setAttribute('fill', stateA ? 'darkgray' : 'lightgray');
+        updateTransistor();
+    });
+
+    inputB.addEventListener('click', () => {
+        stateB = !stateB;
+        inputB.setAttribute('fill', stateB ? 'darkgray' : 'lightgray');
+        updateTransistor();
+    });
+})();
