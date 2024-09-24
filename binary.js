@@ -232,3 +232,4 @@ function updateLabel(id, value) {
 document.querySelectorAll('#row-a .bit, #row-b .bit').forEach(bit => {
     bit.addEventListener('click', onCalculatorInputChange);
 });
+
