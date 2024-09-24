@@ -231,7 +231,8 @@ function updateLabel(id, value) {
 document.addEventListener("DOMContentLoaded", function() {
     const inputA = document.getElementById('inputA');
     const inputB = document.getElementById('inputB');
-    const transistorA = document.getElementById('transistorA');
+    const transistorAc = document.getElementById('transistorAc');
+    const transistorAl = document.getElementById('transistorAl');
     const transistorB = document.getElementById('transistorB');
     const output = document.getElementById('output');
 
@@ -239,9 +240,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let stateB = false;
 
     function updateTransistor() {
-        transistorA.setAttribute('fill', stateA ? 'green' : 'red');
+        transistorAc.setAttribute('fill', stateA ? 'green' : 'red');
         transistorB.setAttribute('fill', stateB ? 'green' : 'red');
-        transistorA.style.transform = stateA ? 'translateX(10px)' : 'translateX(0)';
+        transistorAl.style.transform = stateA ? 'translateX(10px)' : 'translateX(0)';
         transistorB.style.transform = stateB ? 'translateX(10px)' : 'translateX(0)';
         output.setAttribute('fill', (stateA && stateB) ? 'green' : 'red');
     }

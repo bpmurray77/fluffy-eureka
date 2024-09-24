@@ -227,6 +227,7 @@ li {
 .transistor {
     transition: transform 0.3s ease-in-out;
 }
+
 .input-text, .output-text {
     font-family: Arial, sans-serif;
     font-size: 14px;
