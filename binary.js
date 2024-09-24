@@ -124,20 +124,20 @@ function createFullAdder(bitIndex) {
             <path id="wire-and2-out-${bitIndex}" d="M220 176v59H157" fill="none" stroke="#ccc" stroke-width="2"/>
             <line id="wire-or-out-${bitIndex}" x1="150" y1="235" x2="150" y2="300" stroke="#ccc" stroke-width="2"/>
             
-            <circle id="gate-xor1-${bitIndex}" cx="200" cy="100" r="25" fill="#fff" stroke="#000"/>
-            <text x="190" y="105" font-family="Arial" font-size="12">XOR</text>
+            <path id="gate-xor1-${bitIndex}" d="M177 77c.75 29.84 8 31 24.55 50.7925C217 108 224 107 224 77c-14 7-32 7-47 0m0-7c19 9 32 9 48 0" fill="#fff" stroke="#000"/>
+            <text x="188" y="103" font-family="Arial" font-size="12">XOR</text>
             
-            <circle id="gate-xor2-${bitIndex}" cx="290" cy="175" r="25" fill="#fff" stroke="#000"/>
-            <text x="275" y="180" font-family="Arial" font-size="12">XOR</text>
+            <path id="gate-xor2-${bitIndex}" d="M266 156c.75 29.84 8 31 24.55 50.7925C306 187 313 186 313 156c-14 7-32 7-47 0m0-7c19 9 32 9 48 0" fill="#fff" stroke="#000"/>
+            <text x="277" y="180" font-family="Arial" font-size="12">XOR</text>
             
             <path id="gate-and1-${bitIndex}" d="M163.5 76.495c.5 30.505 2.55 51.2975-22.95 51.2975-28.05 0-23.8-20.9525-24.225-51.442" fill="#fff" stroke="#000"/>
-            <text x="127" y="105" font-family="Arial" font-size="12">AND</text>
+            <text x="127" y="103" font-family="Arial" font-size="12">AND</text>
             
             <path id="gate-and2-${bitIndex}" d="M244.5 151.495c.5 30.505 2.55 51.2975-22.95 51.2975-28.05 0-23.8-20.9525-24.225-51.442" fill="#fff" stroke="#000"/>
             <text x="207" y="180" font-family="Arial" font-size="12">AND</text>
             
-            <circle id="gate-or-${bitIndex}" cx="150" cy="235" r="25" fill="#fff" stroke="#000"/>
-            <text x="140" y="235" font-family="Arial" font-size="12">OR</text>
+            <path id="gate-or-${bitIndex}" d="M126 217c.75 29.84 8 31 24.55 50.7925C166 248 173 247 173 217c-14 7-32 7-47 0" fill="#fff" stroke="#000"/>
+            <text x="140" y="244" font-family="Arial" font-size="12">OR</text>
             
             <text id="label-a-${bitIndex}" x="183" y="10" font-family="Arial" font-size="12">A</text>
             <text id="label-b-${bitIndex}" x="210" y="10" font-family="Arial" font-size="12">B</text>
