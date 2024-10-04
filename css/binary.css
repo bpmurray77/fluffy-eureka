@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #0b041a;
-    color: #333;
+    color: #d3d3d3;
 }
 
 header {
@@ -35,10 +35,6 @@ header {
 
 .nav-item a:hover {
     background-color: #1e0b3d;
-}
-
-main {
-    padding: 2rem;
 }
 
 section {
@@ -91,6 +87,11 @@ h2 {
     color: #4CAF50;
 }
 
+h3 {
+    color: #a4c8e1;
+    text-align: center;
+}
+
 .bit-container {
     display: flex;
     justify-content: space-around;
@@ -102,22 +103,100 @@ h2 {
     width: 50px;
     height: 50px;
     background-color: #686868;
-    border: 2px solid #000000;
-    cursor: pointer;
     transition: background-color 0.7s;
 }
 
-.binary-row h2 {
-    margin-right: 20px;
+.binary-row-container .bit {
+    box-shadow: 0px 0px 7px #b84aff;
+    cursor: pointer;
 }
 
-.binary-row-3 h2 {
-    margin-right: 10px;
+.binary-row-container .bit:hover {
+    box-shadow: 0px 0px 14px #b84aff;
+}
+
+.inputG {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+.inputG:hover {
+    filter: drop-shadow(0px 0px 25px #b84aff);
+}
+
+#inputA {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputA:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+#inputB {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputB:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+#inputC {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputC:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+#inputD {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputD:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+#inputE {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputE:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+#inputF {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputF:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+#inputZ {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputZ:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+#inputX {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputX:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
+}
+
+#inputY {
+    filter: drop-shadow(0px 0px 7px #b84aff);
+}
+
+#inputY:hover {
+    filter: drop-shadow(0px 0px 11px #b84aff);
 }
 
 .bit.active {
     background-color: #4CAF50;
-    border-color: #000000;
 }
 
 #sum-decimal-output {
@@ -170,11 +249,6 @@ h2 {
     text-align: right; /* Align text to the right */
 }
 
-.shout {
-    margin-left: 30px;
-    margin-top: 33px;
-}
-
 p {
     color: #d3d3d3;
 }
@@ -192,11 +266,12 @@ li {
 }
 
 .documentation-container {
-    width: 30%; /* Take 55% of the page width */
-    padding-left: 20px;
-    margin-right: 3%;
+    width: 30%;
+    padding-left: 10px;
+    padding-right: 15px;
     max-height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #decimal-sum {
@@ -205,30 +280,203 @@ li {
 
 .bit-circuit-container {
     display: flex; /* Aligns the bit circuits horizontally */
-    justify-content: space-between; /* Space them out evenly */
-    gap: 65px; /* Space between each circuit */
-    width: 65%;
-}
-
-.bit-circuit {
-    flex: 1; /* Allows each circuit to scale according to available space */
-    transform: scale(0.65); /* Shrinks the circuit to 80% of its original size */
-    /* Adjust size as needed */
-    max-width: 80px; /* Optional: limit the width */
+    justify-content: space-around; /* Space them out evenly */
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .and-gate-container {
-    width: 300px;
-    height: 200px;
-    border: 1px solid #ccc;
+    width: 200px;
+    height: 300px;
     margin: 20px;
     padding: 10px;
 }
-.transistor {
+
+.or-gate-container {
+    width: 300px;
+    height: 330px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.xor-gate-container {
+    width: 300px;
+    height: 330px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.big-container {
+    width: 300px;
+    height: 330px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.transistor, .transistorp {
     transition: transform 0.3s ease-in-out;
 }
 
 .input-text, .output-text {
-    font-family: Arial, sans-serif;
+    font-size: 17px;
+    fill: #a4c8e1;
+    font-weight: bold;
+}
+
+.label-text {
     font-size: 14px;
+    fill: #a4c8e1;
+    font-weight: bold;
+}
+
+.model-text {
+    font-size: 22px;
+    fill: #a4c8e1;
+    font-weight: bold;
+}
+
+.and-display {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 55px;
+}
+
+.or-display {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 55px;
+}
+
+.XOR-display {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 55px;
+}
+
+table {
+    border: 3px solid #a4c8e1;
+    border-collapse: collapse;
+    color: #a4c8e1;
+    padding-left: 15px;
+}
+
+th {
+    border: 2px solid #a4c8e1;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+td {
+    border: 3px solid #a4c8e1;
+    text-align: center;
+}
+
+.code {
+    font-weight: bold;
+    font-size: 14pt;
+    color: #a4c8e1;
+    text-align: center;
+}
+
+.array {
+    font-weight: bold;
+    font-size: 12pt;
+    color: #a4c8e1;
+    width: 100%;
+    text-align: center;
+}
+
+.array2 {
+    font-weight: bold;
+    font-size: 11pt;
+    color: #a4c8e1;
+    text-align: center;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted #b84aff;
+    font-weight: bold;
+    color: #4CAF50;
+    cursor: help;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    max-width: 333px;
+    background-color: #4CAF50;
+    color: #0b041a;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 8px;
+    position: fixed;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.decimal-image {
+    max-width: 100%;
+    height: auto;
+}
+
+#magicor {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+  
+#magicor.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#magicxor {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+  
+#magicxor.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#content-div {
+    border: solid 3px #a4c8e1;
+    padding: 20px;
+}
+
+.example {
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.number {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.binary-numbers {
+    font-family: 'courier new';
+    font-size: 15pt;
 }

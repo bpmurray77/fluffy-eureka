@@ -114,7 +114,7 @@ function createFullAdder(bitIndex) {
     const adder = document.createElement('div');
     adder.className = 'full-adder';
     adder.innerHTML = `
-        <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 230 400" width="100%" height="100%" overflow="visible" xmlns="http://www.w3.org/2000/svg">
             <path id="wire-a-${bitIndex}" d="M128 80V40h60m0 41V17" fill="none" stroke="#ccc" stroke-width="2"/>
             <path id="wire-b-${bitIndex}" d="M152 95V55h60m0 41V17" fill="none" stroke="#ccc" stroke-width="2"/>
             <path id="wire-cin-${bitIndex}" d="M300 51V160m0-44H230v44" fill="none" stroke="#ccc" stroke-width="2"/>
@@ -233,29 +233,352 @@ document.addEventListener("DOMContentLoaded", function() {
     const inputB = document.getElementById('inputB');
     const transistorAc = document.getElementById('transistorAc');
     const transistorAl = document.getElementById('transistorAl');
-    const transistorB = document.getElementById('transistorB');
-    const output = document.getElementById('output');
+    const transistorBc = document.getElementById('transistorBc');
+    const transistorBl = document.getElementById('transistorBl');
+    const outputAnd = document.getElementById('outputAnd');
+    const logicA1 = document.getElementById('logicA1');
+    const logicA2 = document.getElementById('logicA2');
 
     let stateA = false;
     let stateB = false;
 
     function updateTransistor() {
-        transistorAc.setAttribute('fill', stateA ? 'green' : 'red');
-        transistorB.setAttribute('fill', stateB ? 'green' : 'red');
-        transistorAl.style.transform = stateA ? 'translateX(10px)' : 'translateX(0)';
-        transistorB.style.transform = stateB ? 'translateX(10px)' : 'translateX(0)';
-        output.setAttribute('fill', (stateA && stateB) ? 'green' : 'red');
+        transistorAc.setAttribute('fill', stateA ? '#4CAF50' : '#FF5252');
+        transistorBc.setAttribute('fill', stateB ? '#4CAF50' : '#FF5252');
+        transistorAl.style.transform = stateA ? 'translateX(15px)' : 'translateX(0)';
+        transistorBl.style.transform = stateB ? 'translateX(15px)' : 'translateX(0)';
+        outputAnd.setAttribute('fill', (stateA && stateB) ? '#4CAF50' : '#FF5252');
+        logicA1.setAttribute('stroke', (stateA) ? '#4CAF50' : '#FF5252');
+        logicA2.setAttribute('stroke', (stateA && stateB) ? '#4CAF50' : '#FF5252');
     }
 
     inputA.addEventListener('click', () => {
         stateA = !stateA;
-        inputA.setAttribute('fill', stateA ? 'darkgray' : 'lightgray');
+        inputA.setAttribute('fill', stateA ? '#4CAF50' : '#FF5252');
         updateTransistor();
     });
 
     inputB.addEventListener('click', () => {
         stateB = !stateB;
-        inputB.setAttribute('fill', stateB ? 'darkgray' : 'lightgray');
+        inputB.setAttribute('fill', stateB ? '#4CAF50' : '#FF5252');
         updateTransistor();
     });
-})();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const inputC = document.getElementById('inputC');
+    const inputD = document.getElementById('inputD');
+    const transistorCc = document.getElementById('transistorCc');
+    const transistorCl = document.getElementById('transistorCl');
+    const transistorDc = document.getElementById('transistorDc');
+    const transistorDl = document.getElementById('transistorDl');
+    const oroutput = document.getElementById('oroutput');
+    const magicor = document.getElementById('magicor');
+    const logicB1 = document.getElementById('logicB1');
+    const logicB2 = document.getElementById('logicB2');
+    const logicB3 = document.getElementById('logicB3');
+    const logicB4 = document.getElementById('logicB4');
+
+    let stateC = false;
+    let stateD = false;
+
+    function updateTransistorOr() {
+        transistorCc.setAttribute('fill', stateC ? '#4CAF50' : '#FF5252');
+        logicB1.setAttribute('stroke', stateC ? '#4CAF50' : '#FF5252');
+        logicB2.setAttribute('stroke', stateC ? '#4CAF50' : '#FF5252');
+        logicB3.setAttribute('stroke', stateD ? '#4CAF50' : '#FF5252');
+        logicB4.setAttribute('stroke', stateD ? '#4CAF50' : '#FF5252');
+        transistorDc.setAttribute('fill', stateD ? '#4CAF50' : '#FF5252');
+        transistorCl.style.transform = stateC ? 'translateX(15px)' : 'translateX(0)';
+        transistorDl.style.transform = stateD ? 'translateX(-15px)' : 'translateX(0)';
+        oroutput.setAttribute('fill', (stateC || stateD) ? '#4CAF50' : '#FF5252');
+        magicor.setAttribute('fill', (stateC || stateD) ? '#4CAF50' : '#FF5252');
+    }
+
+    inputC.addEventListener('click', () => {
+        stateC = !stateC;
+        inputC.setAttribute('fill', stateC ? '#4CAF50' : '#FF5252');
+        updateTransistorOr();
+    });
+
+    inputD.addEventListener('click', () => {
+        stateD = !stateD;
+        inputD.setAttribute('fill', stateD ? '#4CAF50' : '#FF5252');
+        updateTransistorOr();
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const inputE = document.getElementById('inputE');
+    const inputF = document.getElementById('inputF');
+    const transistorEcn = document.getElementById('transistorEcn');
+    const transistorEln = document.getElementById('transistorEln');
+    const transistorEcp = document.getElementById('transistorEcp');
+    const transistorElp = document.getElementById('transistorElp');
+    const transistorFcn = document.getElementById('transistorFcn');
+    const transistorFln = document.getElementById('transistorFln');
+    const transistorFcp = document.getElementById('transistorFcp');
+    const transistorFlp = document.getElementById('transistorFlp');
+    const xoroutput = document.getElementById('xoroutput');
+    const logicC4 = document.getElementById('logicC4');
+    const logicC3 = document.getElementById('logicC3');
+    const logicC2 = document.getElementById('logicC2');
+    const logicC1 = document.getElementById('logicC1');
+    const logicC5 = document.getElementById('logicC5');
+    const logicC6 = document.getElementById('logicC6');
+
+    let stateE = false;
+    let stateF = false;
+
+    function updateTransistorXor() {
+        transistorEcn.setAttribute('fill', stateE ? '#4CAF50' : '#FF5252');
+        transistorFcn.setAttribute('fill', stateF ? '#4CAF50' : '#FF5252');
+        transistorEln.style.transform = stateE ? 'translateX(15px)' : 'translateX(0)';
+        transistorFln.style.transform = stateF ? 'translateX(-15px)' : 'translateX(0)';
+        transistorEcp.setAttribute('fill', stateE ? '#FF5252' : '#4CAF50');
+        transistorFcp.setAttribute('fill', stateF ? '#FF5252' : '#4CAF50');
+        transistorElp.style.transform = stateE ? 'translateX(15px)' : 'translateX(0)';
+        transistorFlp.style.transform = stateF ? 'translateX(-15px)' : 'translateX(0)';
+        xoroutput.setAttribute('fill', (stateE ^ stateF) ? '#4CAF50' : '#FF5252');
+        logicC4.setAttribute('stroke', (stateE ^ stateF) && stateF ? '#4CAF50' : '#FF5252');
+        logicC3.setAttribute('stroke', (stateE ^ stateF) && stateF ? '#4CAF50' : '#FF5252');
+        logicC2.setAttribute('stroke', (stateE ^ stateF) && stateE ? '#4CAF50' : '#FF5252');
+        logicC1.setAttribute('stroke', (stateE ^ stateF) && stateE ? '#4CAF50' : '#FF5252');
+        logicC5.setAttribute('stroke', stateE ? '#4CAF50' : '#FF5252');
+        logicC6.setAttribute('stroke', stateE ? '#FF5252' : '#4CAF50');
+    }
+
+    inputE.addEventListener('click', () => {
+        stateE = !stateE;
+        inputE.setAttribute('fill', stateE ? '#4CAF50' : '#FF5252');
+        updateTransistorXor();
+    });
+
+    inputF.addEventListener('click', () => {
+        stateF = !stateF;
+        inputF.setAttribute('fill', stateF ? '#4CAF50' : '#FF5252');
+        updateTransistorXor();
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const inputG = document.getElementById('inputG');
+    const medium_charge = document.getElementById('medium_charge');
+    const medium = document.getElementById('medium');
+    const output1 = document.getElementById('output1');
+
+    let stateG = false;
+
+    function updateMedium() {
+        medium_charge.style.transform = stateG ? 'translateY(25px)' : 'translateY(0)';
+        medium.setAttribute('fill', stateG ? '#4CAF50' : '#FF5252');
+        output1.setAttribute('fill', stateG ? '#4CAF50' : '#FF5252');
+    }
+
+    inputG.addEventListener('click', () => {
+        stateG = !stateG;
+        inputG.setAttribute('fill', stateG ? '#4CAF50' : '#FF5252');
+        updateMedium();
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const tooltips = document.querySelectorAll('.tooltip');
+    
+    tooltips.forEach(tooltip => {
+        const tooltipText = tooltip.querySelector('.tooltiptext');
+        
+        tooltip.addEventListener('mouseenter', (e) => {
+            const rect = tooltip.getBoundingClientRect();
+            const tooltipRect = tooltipText.getBoundingClientRect();
+            const offset = 10; // Distance from edge and cursor
+
+            // Calculate position
+            let left = e.clientX + offset;
+            let top = rect.bottom + offset;
+
+            // Adjust for right edge
+            if (left + tooltipRect.width > window.innerWidth - offset) {
+                left = window.innerWidth - tooltipRect.width - offset;
+            }
+
+            // Adjust for bottom edge
+            if (top + tooltipRect.height > window.innerHeight - offset) {
+                top = rect.top - tooltipRect.height - offset;
+            }
+
+            // Apply position
+            tooltipText.style.left = `${left}px`;
+            tooltipText.style.top = `${top}px`;
+        });
+    });
+});
+
+// Select the scrollable container and the element (SVG container)
+const docContainer = document.querySelector('.documentation-container');
+const magicor = document.getElementById('magicor');
+
+// Define a scroll point where you want the element to appear
+const scrollPoint = 10000; 
+
+// Add a scroll event listener to the specific scrollable div
+docContainer.addEventListener('scroll', () => {
+  
+  const scrollPosition = docContainer.scrollTop;
+
+  // Show the element when the user scrolls past the scroll point
+  if (scrollPosition > scrollPoint) {
+    magicor.classList.add('show');
+  } else {
+    // Keep the element visible even when scrolling back up
+    if (magicor.classList.contains('show')) {
+      magicor.classList.add('show');
+    }
+  }
+
+  if (scrollPosition > scrollPoint) {
+    magicxor.classList.add('show');
+  } else {
+    
+    if (magicxor.classList.contains('show')) {
+      magicxor.classList.add('show');
+    }
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const inputX = document.getElementById('inputX');
+    const inputZ = document.getElementById('inputZ');
+    const inputY = document.getElementById('inputY');
+    const xor1An = document.getElementById('transistorXor1An');
+    const xor1Bn = document.getElementById('transistorXor1Bn');
+    const xor1Ap = document.getElementById('transistorXor1Ap');
+    const xor1Bp = document.getElementById('transistorXor1Bp');
+    const and1A = document.getElementById('transistorAnd1A');
+    const and1B = document.getElementById('transistorAnd1B');
+    const and2A = document.getElementById('transistorAnd2A');
+    const and2B = document.getElementById('transistorAnd2B');
+    const xor2An = document.getElementById('transistorXor2An');
+    const xor2Bn = document.getElementById('transistorXor2Bn');
+    const xor2Ap = document.getElementById('transistorXor2Ap');
+    const xor2Bp = document.getElementById('transistorXor2Bp');
+    const orA = document.getElementById('transistorOrA');
+    const orB = document.getElementById('transistorOrB');
+    const outputSum = document.getElementById('outputSum');
+    const outputCarry = document.getElementById('outputCarry');
+    const wireA = document.getElementById('wireA');
+    const wireB = document.getElementById('wireB');
+    const wireCin = document.getElementById('wireCin');
+    const xor1out = document.getElementById('xor1out');
+    const xor1out1 = document.getElementById('xor1out1');
+    const xor1out2 = document.getElementById('xor1out2');
+    const xor2out1 = document.getElementById('xor2out1');
+    const xor2out2 = document.getElementById('xor2out2');
+    const orOutl = document.getElementById('orOutl');
+    const orOutr = document.getElementById('orOutr');
+    const orOut = document.getElementById('orOut');
+    const xor2out = document.getElementById('xor2out');
+    const and1out = document.getElementById('and1out');
+    const and2out = document.getElementById('and2out');
+    const xor1lcon = document.getElementById('xor1lcon');
+    const xor1rcon = document.getElementById('xor1rcon');
+    const xor2lcon = document.getElementById('xor2lcon');
+    const xor2rcon = document.getElementById('xor2rcon');
+    const and1con = document.getElementById('and1con');
+
+    const configurations = {
+        'false_false_false': 'With no signals coming from any of the inputs, none of the logic gates pass a signal along and neither the sum nor the carry output turn on.',
+        'false_false_true': 'With only the B input on the first XOR gate can pass a signal, but the AND gate cannot. The signal from the first XOR gate allows a signal to pass through the second XOR gate since the carry input is off. Also, since the carry input is off, the second AND gate cannot pass a signal. The second XOR gate output means that the sum of A and B is 1 with no carry.',
+        'false_true_false': 'Text for X: false, Y: true, Z: false',
+        'false_true_true': 'Text for X: false, Y: true, Z: true',
+        'true_false_false': 'Text for X: true, Y: false, Z: false',
+        'true_false_true': 'Text for X: true, Y: false, Z: true',
+        'true_true_false': 'Text for X: true, Y: true, Z: false',
+        'true_true_true': 'Text for X: true, Y: true, Z: true'
+    };
+    const contentDiv = document.getElementById('content-div');
+
+    let stateX = false;
+    let stateZ = false;
+    let stateY = false;
+
+    function updateDocumentation() {
+        const key = `${stateX}_${stateY}_${stateZ}`;
+        contentDiv.innerText = configurations[key];
+    }
+
+    function updateTransistor() {
+        // XOR 1 Logic (A XOR B)
+        const xor1 = stateX ^ stateZ;
+        xor1An.setAttribute('fill', stateX ? '#4CAF50' : '#FF5252');
+        xor1Bn.setAttribute('fill', stateZ ? '#4CAF50' : '#FF5252');
+        xor1Ap.setAttribute('fill', stateX ? '#FF5252' : '#4CAF50');
+        xor1Bp.setAttribute('fill', stateZ ? '#FF5252' : '#4CAF50');
+        wireA.setAttribute('stroke', stateX ? '#4CAF50' : '#FF5252');
+        wireB.setAttribute('stroke', stateZ ? '#4CAF50' : '#FF5252');
+        wireCin.setAttribute('stroke', stateY ? '#4CAF50' : '#FF5252');
+        xor1out.setAttribute('stroke', xor1 ? '#4CAF50' : '#FF5252');
+        xor1out1.setAttribute('stroke', xor1 && stateZ ? '#4CAF50' : '#FF5252');
+        xor1out2.setAttribute('stroke', xor1 && stateX ? '#4CAF50' : '#FF5252');
+        xor1lcon.setAttribute('stroke', xor1 && stateX ? '#4CAF50' : '#FF5252');
+        xor1rcon.setAttribute('stroke', xor1 && stateZ ? '#4CAF50' : '#FF5252');
+
+        // AND Logic (A AND B)
+        const and1 = stateX && stateZ;
+        and1A.setAttribute('fill', stateX ? '#4CAF50' : '#FF5252');
+        and1B.setAttribute('fill', stateZ ? '#4CAF50' : '#FF5252');
+        and1out.setAttribute('stroke', and1 ? '#4CAF50' : '#FF5252');
+        and1con.setAttribute('stroke', stateX ? '#4CAF50' : '#FF5252');
+
+        // AND 2 Logic (A AND B)
+        const and2 = xor1 && stateY;
+        and2A.setAttribute('fill', xor1 ? '#4CAF50' : '#FF5252');
+        and2out.setAttribute('stroke', and2 ? '#4CAF50' : '#FF5252');
+        and2B.setAttribute('fill', stateY ? '#4CAF50' : '#FF5252');
+
+        // XOR 2 Logic (XOR1 XOR Cin -> Assume Cin=0 for now)
+        const xor2 = xor1 ^ stateY;
+        xor2An.setAttribute('fill', xor1 ? '#4CAF50' : '#FF5252');
+        xor2Bn.setAttribute('fill', stateY ? '#4CAF50' : '#FF5252');
+        xor2Ap.setAttribute('fill', xor1 ? '#FF5252' : '#4CAF50');
+        xor2Bp.setAttribute('fill', stateY ? '#FF5252' : '#4CAF50');
+        xor2out.setAttribute('stroke', xor2 ? '#4CAF50' : '#FF5252');
+        xor2out1.setAttribute('stroke', xor2 && stateY ? '#4CAF50' : '#FF5252');
+        xor2out2.setAttribute('stroke', xor2 && xor1 ? '#4CAF50' : '#FF5252');
+        xor2lcon.setAttribute('stroke', xor2 && xor1 ? '#4CAF50' : '#FF5252');
+        xor2rcon.setAttribute('stroke', xor2 && stateY ? '#4CAF50' : '#FF5252');
+
+        // OR Logic (AND1 OR XOR2)
+        const orResult = and1 || and2;
+        orA.setAttribute('fill', and1 ? '#4CAF50' : '#FF5252');
+        orB.setAttribute('fill', and2 ? '#4CAF50' : '#FF5252');
+        orOut.setAttribute('stroke', orResult ? '#4CAF50' : '#FF5252');
+        orOutl.setAttribute('stroke', orResult && and1 ? '#4CAF50' : '#FF5252');
+        orOutr.setAttribute('stroke', orResult && and2 ? '#4CAF50' : '#FF5252');
+
+        // Update Sum and Carry Outputs
+        outputSum.setAttribute('fill', xor2 ? '#4CAF50' : '#FF5252');
+        outputCarry.setAttribute('fill', orResult ? '#4CAF50' : '#FF5252');
+
+        updateDocumentation();
+    }
+
+    inputX.addEventListener('click', () => {
+        stateX = !stateX;
+        inputX.setAttribute('fill', stateX ? '#4CAF50' : '#FF5252');
+        updateTransistor();
+    });
+
+    inputZ.addEventListener('click', () => {
+        stateZ = !stateZ;
+        inputZ.setAttribute('fill', stateZ ? '#4CAF50' : '#FF5252');
+        updateTransistor();
+    });
+
+    inputY.addEventListener('click', () => {
+        stateY = !stateY;
+        inputY.setAttribute('fill', stateY ? '#4CAF50' : '#FF5252');
+        updateTransistor();
+    });
+    updateTransistor();
+});
